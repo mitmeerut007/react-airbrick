@@ -6,7 +6,7 @@ export default function Layout({ children }) {
   return (
     <div>
       <Header />
-      <main>{children}</main>
+      <main className="bg-gray-100 py-5">{children}</main>
       <Footer />
     </div>
   );
