@@ -1,4 +1,9 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
+body {
+  background-color: rgba(212, 212, 212, 0.74);
+  font-family: "Inter", sans-serif;
+}
