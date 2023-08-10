@@ -8,7 +8,7 @@ const AddPlace = () => {
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Add Place</h1>
             <form className="space-y-4 md:space-y-6" action="#">
-              <div class="grid md:grid-cols-2 md:gap-6">
+              <div className="grid md:grid-cols-2 md:gap-6">
                 <div>
                   <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900">
                     Title

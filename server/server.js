@@ -3,24 +3,22 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectToMongoDB from "./db.js";
 import userRoutes from "./routes/userRoutes.js";
-import placeRoutes from "./routes/placesRoutes.js"; // Import the user routes module
+import imgRoutes from "./routes/imgRoutes.js";
 
 dotenv.config({ path: "./.env" });
 const PORT = process.env.PORT || 5000;
-const router = express.Router();
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use("/api", router);
 
 // Connect to MongoDB and start the server
 connectToMongoDB()
   .then(() => {
     // Use the user routes
-    router.use("/user", userRoutes);
-    router.use("/place", placeRoutes);
+    app.use("/api/user", userRoutes);
+    app.use("/api/image", imgRoutes); // Update this line to use the correct router
 
     // Start the server
     app.listen(PORT, () => {
