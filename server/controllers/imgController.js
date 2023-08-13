@@ -38,28 +38,32 @@ export const getImagesByTags = async (req, res) => {
       pageNumber = 1;
     }
 
-    if (!tags) {
-      const totalCount = await Img.countDocuments();
-      const totalPages = Math.ceil(totalCount / ITEMS_PER_PAGE);
+    let totalCount = 0;
+    let images = [];
 
-      const allImages = await Img.find()
+    if (!tags) {
+      totalCount = await Img.countDocuments();
+      images = await Img.find()
         .skip((pageNumber - 1) * ITEMS_PER_PAGE)
         .limit(ITEMS_PER_PAGE);
+    } else {
+      const tagsArray = tags.split(",").map((tag) => tag.trim());
 
-      res.status(200).json({ images: allImages, totalPages });
-      return;
+      totalCount = await Img.countDocuments({ Final_tags: { $all: tagsArray } });
+      images = await Img.find({ Final_tags: { $all: tagsArray } })
+        .skip((pageNumber - 1) * ITEMS_PER_PAGE)
+        .limit(ITEMS_PER_PAGE);
     }
 
-    const tagsArray = tags.split(",").map((tag) => tag.trim());
+    // Shuffle the images using Fisher-Yates shuffle algorithm
+    for (let i = images.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [images[i], images[j]] = [images[j], images[i]];
+    }
 
-    const totalCount = await Img.countDocuments({ Final_tags: { $all: tagsArray } });
     const totalPages = Math.ceil(totalCount / ITEMS_PER_PAGE);
 
-    const imagesWithTags = await Img.find({ Final_tags: { $all: tagsArray } })
-      .skip((pageNumber - 1) * ITEMS_PER_PAGE)
-      .limit(ITEMS_PER_PAGE);
-
-    res.status(200).json({ images: imagesWithTags, totalPages });
+    res.status(200).json({ images, totalPages });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
@@ -71,6 +75,22 @@ export const getAllTags = async (req, res) => {
     const allImages = await Img.find();
     const allTags = Array.from(new Set(allImages.flatMap((image) => image.Final_tags)));
     res.status(200).json(allTags);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const getAllProjects = async (req, res) => {
+  try {
+    const { mask } = req.query;
+
+    if (!mask) {
+      return res.status(400).json({ message: "Mask value is required." });
+    }
+
+    const projects = await Img.find({ Mask: mask });
+    res.status(200).json(projects);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });

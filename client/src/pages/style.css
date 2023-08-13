@@ -49,3 +49,6 @@
   content: "Next";
   margin-left: 0.25rem;
 }
+.pop-backdrop{
+  background-color: #00000091;
+}

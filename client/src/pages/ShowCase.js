@@ -14,7 +14,7 @@ const ShowCase = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0); // Initialize totalPages to 0
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState({ mask: "", ID: "" });
 
   const sortedTags = tags.slice().sort();
   const location = useLocation();
@@ -77,12 +77,16 @@ const ShowCase = () => {
     setCurrentPage(selected + 1); // Pages are 0-based, but currentPage starts from 1
   };
 
-  const openImagePopup = (imageUrl) => {
-    setSelectedImage(imageUrl);
+  const openImagePopup = (Mask, ID) => {
+    setSelectedImage({ mask: Mask, ID: ID });
   };
 
   const closeImagePopup = () => {
     setSelectedImage(null);
+  };
+
+  const goTOProject = (mask) => {
+    navigate(`/project?mask=${mask}`);
   };
 
   return (
@@ -224,33 +228,8 @@ const ShowCase = () => {
         <div className="bg-white p-3 flex">
           <h3 className="font-semibold">Filter</h3>
           <div className="w-px mx-3 bg-gray-300 rounded"></div>
-          <span
-            id="badge-dismiss-green"
-            className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300"
-          >
+          <span className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">
             Green
-            <button
-              type="button"
-              className="inline-flex items-center p-1 ml-2 text-sm text-green-400 bg-transparent rounded-sm hover:bg-green-200 hover:text-green-900 dark:hover:bg-green-800 dark:hover:text-green-300"
-              data-dismiss-target="#badge-dismiss-green"
-              aria-label="Remove"
-            >
-              <svg
-                className="w-2 h-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 14"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                />
-              </svg>
-            </button>
           </span>
         </div>
 
@@ -262,6 +241,7 @@ const ShowCase = () => {
               {images.map((image, index) => (
                 <div
                   key={index}
+                  onClick={() => openImagePopup(image.Mask, image.ID)}
                   className="relative group aspect-w-3 aspect-h-4 bg-white overflow-hidden rounded-md shadow-md hover:shadow-lg transition duration-300"
                 >
                   <img
@@ -269,76 +249,46 @@ const ShowCase = () => {
                     alt="Image"
                     className="object-cover rounded-md w-full h-full"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                    <button
-                      className="text-white text-lg font-semibold"
-                      onClick={() =>
-                        openImagePopup(`https://virtual-tours-india.in/air_brick/content/${image.Mask}/${image.ID}.jpg`)
-                      }
-                    >
-                      View
-                    </button>
-                  </div>
                 </div>
               ))}
 
-              {selectedImage && (
-                <div
-                  id="defaultModal"
-                  tabIndex={-1}
-                  aria-hidden="true"
-                  className="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
-                >
-                  <div className="relative w-full max-w-2xl max-h-full">
-                    {/* Modal content */}
-                    <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                      {/* Modal header */}
-                      <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Terms of Service</h3>
-                        <button
-                          onClick={closeImagePopup}
-                          type="button"
-                          className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                          data-modal-hide="defaultModal"
-                        >
-                          <svg
-                            className="w-3 h-3"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 14 14"
+              {selectedImage?.mask && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center pop-backdrop">
+                  <div className="fixed inset-0 overflow-auto">
+                    <div className="flex items-center justify-center min-h-screen px-4">
+                      <div className="relative w-full max-w-5xl mx-auto rounded-lg shadow bg-white dark:bg-gray-700">
+                        {/* Modal header */}
+                        <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Terms of Service</h3>
+                          <button
+                            onClick={closeImagePopup}
+                            type="button"
+                            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                           >
-                            <path
-                              stroke="currentColor"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                            <Unicons.UilTimes />
+                          </button>
+                        </div>
+                        {/* Modal body */}
+                        <div className="p-6 space-y-3">
+                          <div className="flex justify-center">
+                            <img
+                              src={`https://virtual-tours-india.in/air_brick/content/${selectedImage.mask}/${selectedImage.ID}.jpg`}
+                              className="max-w-3xl h-auto mx-auto rounded-md"
+                              style={{ maxHeight: "70vh" }} // Set maximum height for vertical images
+                              alt="Selected"
                             />
-                          </svg>
-                          <span className="sr-only">Close modal</span>
-                        </button>
-                      </div>
-                      {/* Modal body */}
-                      <div className="p-6 space-y-6">
-                        <img src={selectedImage} className="w-full"/>
-                      </div>
-                      {/* Modal footer */}
-                      <div className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                        <button
-                          data-modal-hide="defaultModal"
-                          type="button"
-                          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                        >
-                          I accept
-                        </button>
-                        <button
-                          data-modal-hide="defaultModal"
-                          type="button"
-                          className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
-                        >
-                          Decline
-                        </button>
+                          </div>
+                        </div>
+                        {/* Modal footer */}
+                        <div className="flex items-center justify-end p-5 pt-1 space-x-2 rounded-b">
+                          <button
+                            onClick={() => goTOProject(selectedImage.mask)}
+                            type="button"
+                            className="text-white bg-green-500 hover:bg-green-600 py-2 px-4 rounded-xl"
+                          >
+                            View Complete Project
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -346,24 +296,6 @@ const ShowCase = () => {
               )}
             </div>
           ) : (
-            // <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5">
-            //   {images.map((image, index) => (
-            //     <div key={index} className="bg-white rounded-xl p-3 shadow-lg">
-            //       <img src={`https://virtual-tours-india.in/air_brick/content/${image.Mask}/${image.ID}.jpg`} alt="No Results" className="mx-auto w-full rounded-xl" />
-            //       {/* <h3 className="text-xl font-bold">{image.Folder_Name}</h3>
-            //       <div className="flex flex-wrap gap-1 my-3">
-            //         {image.Final_tags.map((tag, tagIndex) => (
-            //           <span
-            //             key={tagIndex}
-            //             className="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300"
-            //           >
-            //             {tag}
-            //           </span>
-            //         ))}
-            //       </div> */}
-            //     </div>
-            //   ))}
-            // </div>
             <NoResultsComponent />
           )}
         </div>
