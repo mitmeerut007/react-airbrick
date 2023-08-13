@@ -1,50 +1,54 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import ReactPaginate from "react-paginate";
+import "./style.css";
+import Loader from "../components/Loader";
+import NoResultsComponent from "../components/NoResultsComponent";
+import * as Unicons from "@iconscout/react-unicons";
 
 const ShowCase = () => {
   const [images, setImages] = useState([]);
   const [tags, setTags] = useState([]);
-  const [selectedTags, setSelectedTags] = useState("");
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0); // Initialize totalPages to 0
+  const [selectedImage, setSelectedImage] = useState(null);
 
+  const sortedTags = tags.slice().sort();
   const location = useLocation();
   const navigate = useNavigate();
-  useEffect(() => {
-    // Fetch images and tags
-    fetchImages();
-    fetchTags();
-  }, [selectedTags]);
 
   useEffect(() => {
-    // Parse query parameters from the URL
     const queryParams = new URLSearchParams(location.search);
     const tagsFromUrl = queryParams.get("tags");
-
-    // Update selectedTags state based on the URL parameters
     if (tagsFromUrl) {
-      const tagsArray = tagsFromUrl.split("-");
-      setSelectedTags(tagsArray);
+      setSelectedTags(tagsFromUrl.split("-"));
     }
   }, [location.search]);
 
-  const fetchImages = async () => {
-    try {
-      const response = await axios.get(`http://localhost:5000/api/image/filter?tags=${selectedTags}`);
-      setImages(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  useEffect(() => {
+    fetchImagesAndTags();
+  }, [selectedTags, currentPage]);
 
-  const fetchTags = async () => {
+  const fetchImagesAndTags = async () => {
+    setIsLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/api/image/tags");
-      setTags(response.data);
+      const [imagesResponse, tagsResponse] = await Promise.all([
+        axios.get(`http://localhost:5000/api/image/filter?tags=${selectedTags}&page=${currentPage}`), // Join selectedTags to create a single string
+        axios.get("http://localhost:5000/api/image/tags"),
+      ]);
+
+      setImages(imagesResponse.data.images);
+      setTotalPages(imagesResponse.data.totalPages);
+      setTags(tagsResponse.data);
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
+      setIsLoading(false);
     }
   };
-  const sortedTags = tags.slice().sort();
 
   const handleTagChange = (event) => {
     const tagName = event.target.value;
@@ -60,13 +64,25 @@ const ShowCase = () => {
 
     setSelectedTags(updatedTags);
 
-    // Update URL with the selected tags
     const queryParams = new URLSearchParams();
     if (updatedTags.length > 0) {
       queryParams.set("tags", updatedTags.join("-"));
     }
 
     navigate({ search: queryParams.toString() });
+    setCurrentPage(1);
+  };
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected + 1); // Pages are 0-based, but currentPage starts from 1
+  };
+
+  const openImagePopup = (imageUrl) => {
+    setSelectedImage(imageUrl);
+  };
+
+  const closeImagePopup = () => {
+    setSelectedImage(null);
   };
 
   return (
@@ -238,22 +254,139 @@ const ShowCase = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5">
-          {images.map((image, index) => (
-            <div key={index} className="bg-white rounded-lg p-3 shadow-lg">
-              <h3 className="text-xl font-bold">{image.title}</h3>
-              <div className="flex flex-wrap gap-1 my-3">
-                {image.tags.map((tag, tagIndex) => (
-                  <span
-                    key={tagIndex}
-                    className="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+        <div>
+          {isLoading ? (
+            <Loader />
+          ) : images.length > 0 ? (
+            <div className="container mx-auto p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className="relative group aspect-w-3 aspect-h-4 bg-white overflow-hidden rounded-md shadow-md hover:shadow-lg transition duration-300"
+                >
+                  <img
+                    src={`https://virtual-tours-india.in/air_brick/content/${image.Mask}/${image.ID}.jpg`}
+                    alt="Image"
+                    className="object-cover rounded-md w-full h-full"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                    <button
+                      className="text-white text-lg font-semibold"
+                      onClick={() =>
+                        openImagePopup(`https://virtual-tours-india.in/air_brick/content/${image.Mask}/${image.ID}.jpg`)
+                      }
+                    >
+                      View
+                    </button>
+                  </div>
+                </div>
+              ))}
+
+              {selectedImage && (
+                <div
+                  id="defaultModal"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+                >
+                  <div className="relative w-full max-w-2xl max-h-full">
+                    {/* Modal content */}
+                    <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                      {/* Modal header */}
+                      <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Terms of Service</h3>
+                        <button
+                          onClick={closeImagePopup}
+                          type="button"
+                          className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                          data-modal-hide="defaultModal"
+                        >
+                          <svg
+                            className="w-3 h-3"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 14 14"
+                          >
+                            <path
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                            />
+                          </svg>
+                          <span className="sr-only">Close modal</span>
+                        </button>
+                      </div>
+                      {/* Modal body */}
+                      <div className="p-6 space-y-6">
+                        <img src={selectedImage} className="w-full"/>
+                      </div>
+                      {/* Modal footer */}
+                      <div className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                        <button
+                          data-modal-hide="defaultModal"
+                          type="button"
+                          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        >
+                          I accept
+                        </button>
+                        <button
+                          data-modal-hide="defaultModal"
+                          type="button"
+                          className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                        >
+                          Decline
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-          ))}
+          ) : (
+            // <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5">
+            //   {images.map((image, index) => (
+            //     <div key={index} className="bg-white rounded-xl p-3 shadow-lg">
+            //       <img src={`https://virtual-tours-india.in/air_brick/content/${image.Mask}/${image.ID}.jpg`} alt="No Results" className="mx-auto w-full rounded-xl" />
+            //       {/* <h3 className="text-xl font-bold">{image.Folder_Name}</h3>
+            //       <div className="flex flex-wrap gap-1 my-3">
+            //         {image.Final_tags.map((tag, tagIndex) => (
+            //           <span
+            //             key={tagIndex}
+            //             className="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300"
+            //           >
+            //             {tag}
+            //           </span>
+            //         ))}
+            //       </div> */}
+            //     </div>
+            //   ))}
+            // </div>
+            <NoResultsComponent />
+          )}
+        </div>
+
+        <div className="flex justify-end m-5">
+          {totalPages !== 0 && (
+            <ReactPaginate
+              pageCount={totalPages}
+              pageRangeDisplayed={3}
+              marginPagesDisplayed={1}
+              previousLabel={<Unicons.UilAngleLeftB />}
+              nextLabel={<Unicons.UilAngleRightB />}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              activeClassName={"active"}
+              pageClassName={"page-item"}
+              pageLinkClassName={"page-link"}
+              previousClassName={"page-item"}
+              previousLinkClassName={"page-link"}
+              nextClassName={"page-item"}
+              nextLinkClassName={"page-link"}
+            />
+          )}
         </div>
       </div>
     </div>
