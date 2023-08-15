@@ -36,8 +36,8 @@ const ShowCase = () => {
     setIsLoading(true);
     try {
       const [imagesResponse, tagsResponse] = await Promise.all([
-        axios.get(`http://localhost:5000/api/image/filter?tags=${selectedTags}&page=${currentPage}`), // Join selectedTags to create a single string
-        axios.get("http://localhost:5000/api/image/tags"),
+        axios.get(`https://air-brick-back.vercel.app/api/image/filter?tags=${selectedTags}&page=${currentPage}`), // Join selectedTags to create a single string
+        axios.get("https://air-brick-back.vercel.app/api/image/tags"),
       ]);
 
       setImages(imagesResponse.data.images);
