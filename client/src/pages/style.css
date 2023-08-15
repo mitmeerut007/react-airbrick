@@ -49,6 +49,71 @@
   content: "Next";
   margin-left: 0.25rem;
 }
-.pop-backdrop{
+.pop-backdrop {
   background-color: #00000091;
+}
+.slider-container > div {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .slider-image-container {
+    height: 50vh !important;
+  }
+}
+
+.slider-image-container {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 10rem);
+  padding: 0 10px;
+  border: none !important;
+  outline: none !important;
+}
+
+.slider-image {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  background-color: #000000;
+  padding: 10px;
+  opacity: 1;
+  border-radius: 50%;
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 24px;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.slick-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.custom-prev-arrow {
+  left: 0;
+  margin-left: 20px; /* Add some spacing from the edge */
+}
+
+.custom-next-arrow {
+  right: 0;
+  margin-right: 20px; /* Add some spacing from the edge */
 }
