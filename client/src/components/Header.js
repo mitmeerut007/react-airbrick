@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { LoginContext } from "./Context";
+import axios from "axios"; // Import Axios
 
 function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -8,8 +10,41 @@ function Header() {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const { logindata, setLoginData } = useContext(LoginContext);
+
+  const history = useNavigate();
+
+  const logoutuser = async () => {
+    let token = localStorage.getItem("usersdatatoken");
+
+    try {
+      const response = await axios.get("http://localhost:5000/api/user/logout", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+          Accept: "application/json",
+        },
+        withCredentials: true, // Include credentials for cross-origin requests
+      });
+
+      const data = response.data;
+      console.log(data);
+
+      if (data.status === 201) {
+        console.log("User logout");
+        localStorage.removeItem("usersdatatoken");
+        setLoginData(false);
+        history("/");
+      } else {
+        console.log("Error");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
-    <header>
+    <header className="sticky top-0 z-50">
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 shadow">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <Link to="https://flowbite.com" className="flex items-center">
@@ -17,18 +52,12 @@ function Header() {
             <span className="self-center text-xl font-semibold whitespace-nowrap text-gray-800">Flowbite</span>
           </Link>
           <div className="flex items-center lg:order-2">
-            <Link
-              to="#"
-              className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
-            >
-              Log in
-            </Link>
-            <Link
-              to="#"
+            <button
+              onClick={() => logoutuser()}
               className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
             >
-              Get started
-            </Link>
+              Logout
+            </button>
             <button
               onClick={toggleMobileMenu}
               type="button"
@@ -82,7 +111,7 @@ function Header() {
               <li>
                 <Link
                   to="#"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 lg:hover:text-white lg:border-gray-700"
+                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 lg:border-gray-700"
                 >
                   Company
                 </Link>
@@ -90,7 +119,7 @@ function Header() {
               <li>
                 <Link
                   to="#"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 lg:hover:text-white lg:border-gray-700"
+                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 lg:border-gray-700"
                 >
                   Marketplace
                 </Link>
@@ -98,7 +127,7 @@ function Header() {
               <li>
                 <Link
                   to="#"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 lg:hover:text-white lg:border-gray-700"
+                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 lg:border-gray-700"
                 >
                   Features
                 </Link>
@@ -106,7 +135,7 @@ function Header() {
               <li>
                 <Link
                   to="#"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 lg:hover:text-white lg:border-gray-700"
+                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 lg:border-gray-700"
                 >
                   Team
                 </Link>
@@ -114,7 +143,7 @@ function Header() {
               <li>
                 <Link
                   to="#"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 lg:hover:text-white lg:border-gray-700"
+                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 lg:border-gray-700"
                 >
                   Contact
                 </Link>
