@@ -18,7 +18,7 @@ function Header() {
     let token = localStorage.getItem("usersdatatoken");
 
     try {
-      const response = await axios.get("http://localhost:5000/api/user/logout", {
+      const response = await axios.get("https://air-brick-back.vercel.app/api/user/logout", {
         headers: {
           "Content-Type": "application/json",
           Authorization: token,
