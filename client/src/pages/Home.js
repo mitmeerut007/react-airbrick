@@ -1,16 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { LoginContext } from "../components/Context";
-import Loader from "../components/Loader";
+import React from "react";
 import Layout from "./Layout";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Navbar from "./../components/Navbar/Navbar";
 
 const Home = () => {
   return (
     <Layout>
+      <ToastContainer />
+      <Navbar />
       <div className="container mx-auto p-3 md:p-10">
         {/* Section 1 card */}
         <div className="lg:mx-20">
-          <h1 className="text-3xl text-center font-semibold mb-5">Explore the best of Air Brick</h1>
+          <h1 className="text-3xl text-center font-semibold mb-5">Explore the best of Workspace Photos</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {/* Card 1 */}
             <div className="relative overflow-hidden bg-white rounded-lg shadow-md">
@@ -35,7 +37,7 @@ const Home = () => {
               />
               <div className="absolute inset-0 flex items-end justify-start p-10 bg-black bg-opacity-25 hover:bg-opacity-40 text-white transition-opacity opacity-100">
                 <div className="text-left">
-                  <h2 className="text-4xl mb-4 font-bold">Open Office</h2>
+                  <h2 className="text-4xl mb-4 font-bold">Private Office</h2>
                   <button className="py-2 px-4 font-bold text-sm rounded-3xl text-black bg-white">View More</button>
                 </div>
               </div>
@@ -49,7 +51,7 @@ const Home = () => {
               />
               <div className="absolute inset-0 flex items-end justify-start p-10 bg-black bg-opacity-25 hover:bg-opacity-40 text-white transition-opacity opacity-100">
                 <div className="text-left">
-                  <h2 className="text-4xl mb-4 font-bold">Open Office</h2>
+                  <h2 className="text-4xl mb-4 font-bold">Work Lounge</h2>
                   <button className="py-2 px-4 font-bold text-sm rounded-3xl text-black bg-white">View More</button>
                 </div>
               </div>

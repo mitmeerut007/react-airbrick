@@ -117,3 +117,23 @@
   right: 0;
   margin-right: 20px; /* Add some spacing from the edge */
 }
+
+.category-dropdown {
+  margin-bottom: 10px; /* Adjust spacing between categories */
+}
+
+.category-title {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-content {
+  display: none;
+  margin-top: 10px; /* Adjust spacing between title and content */
+}
+
+.category-dropdown.active .category-content {
+  display: block;
+}

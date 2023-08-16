@@ -11,13 +11,13 @@ import Layout from "./Layout";
 const ShowCase = () => {
   const [images, setImages] = useState([]);
   const [tags, setTags] = useState([]);
+  const [filterMenu, setfilterMenu] = useState(false);
   const [selectedTags, setSelectedTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0); // Initialize totalPages to 0
   const [selectedImage, setSelectedImage] = useState({ mask: "", ID: "" });
 
-  const sortedTags = tags.slice().sort();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -45,7 +45,7 @@ const ShowCase = () => {
     try {
       const [imagesResponse, tagsResponse] = await Promise.all([
         axios.get(`https://air-brick-back.vercel.app/api/image/filter?tags=${selectedTags}&page=${currentPage}`), // Join selectedTags to create a single string
-        axios.get("https://air-brick-back.vercel.app/api/image/tags"),
+        axios.get("https://air-brick-back.vercel.app/api/tag/get"),
       ]);
 
       setImages(imagesResponse.data.images);
@@ -97,16 +97,24 @@ const ShowCase = () => {
     navigate(`/project?mask=${mask}`);
   };
 
-  return (
-    <Layout>
-      <aside
-        id="logo-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
-        aria-label="Sidebar"
-      >
-        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-          <ul className="space-y-2 font-medium">
-            {sortedTags.map((tag, index) => (
+  const toggleCategory = (event) => {
+    const dropdown = event.currentTarget.closest(".category-dropdown");
+    dropdown.classList.toggle("active");
+  };
+
+  const renderTagCategory = (category, title) => (
+    <div className="categorey">
+      <div className="category-title" onClick={toggleCategory}>
+        <h2>{title}</h2>
+        <span>
+          <Unicons.UilAngleDown />
+        </span>
+      </div>
+      <div className="category-content">
+        <ul className="space-y-2 font-medium">
+          {tags[category]
+            ?.sort() // Sort the tags alphabetically
+            .map((tag, index) => (
               <li key={index} className="flex items-center">
                 <input
                   id={`tag-${index}`}
@@ -121,16 +129,58 @@ const ShowCase = () => {
                 </label>
               </li>
             ))}
-          </ul>
+        </ul>
+      </div>
+    </div>
+  );
+
+  return (
+    <Layout>
+      <aside
+        id="logo-sidebar"
+        className={`fixed top-0 left-0 z-50 w-64 h-screen pt-14 transition-transform ${
+          filterMenu ? "translate-x-0" : "-translate-x-full"
+        } bg-white border-r border-gray-200 `}
+        aria-label="Sidebar"
+      >
+        <div className="flex justify-between px-3 items-center mb-5">
+          <h2 className="text-2xl font-bold">Filter</h2>
+          <div onClick={() => setfilterMenu(false)} className="bg-teal-200 rounded-md">
+            <Unicons.UilTimes />
+          </div>
+        </div>
+
+        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+          <div className="category-dropdown active">{renderTagCategory("Work Areas", "Work Areas")}</div>
+          <div className="category-dropdown">{renderTagCategory("Meeting Spaces", "Meeting Spaces")}</div>
+          <div className="category-dropdown">{renderTagCategory("Support Spaces", "Support Spaces")}</div>
+
+          <div className="category-dropdown">{renderTagCategory("Features", "Features")}</div>
+          <div className="category-dropdown">{renderTagCategory("Flooring", "Flooring")}</div>
+          <div className="category-dropdown">{renderTagCategory("Lighting", "Lighting")}</div>
+
+          <div className="category-dropdown">{renderTagCategory("Materials", "Materials")}</div>
+          <div className="category-dropdown">
+            {renderTagCategory("Environmental Graphics", "Environmental Graphics")}
+          </div>
+          <div className="category-dropdown">{renderTagCategory("Seating & Tables", "Seating & Tables")}</div>
         </div>
       </aside>
 
-      <div className="pt-14 sm:ml-64">
-        <div className="bg-white p-3 flex">
-          <h3 className="font-semibold">Filter</h3>
-          <div className="w-px mx-3 bg-gray-300 rounded"></div>
-          <span className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">
-            Green
+      <div className="results-box">
+        <div className="bg-white p-3 flex justify-between items-center">
+          <div className="flex">
+            <h3 className="font-semibold">Filter</h3>
+            <div className="w-px mx-3 bg-gray-300 rounded"></div>
+            <span className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">
+              Green
+            </span>
+          </div>
+          <span
+            onClick={() => setfilterMenu(!filterMenu)}
+            className="text-sm px-3 py-2 bg-teal-600 text-white rounded-md flex gap-3 cursor-pointer"
+          >
+            View Filters <Unicons.UilApps />
           </span>
         </div>
 
@@ -201,7 +251,7 @@ const ShowCase = () => {
           )}
         </div>
 
-        <div className="flex justify-end m-5">
+        <div className="flex justify-center m-5">
           {totalPages !== 0 && (
             <ReactPaginate
               pageCount={totalPages}
