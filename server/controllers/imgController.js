@@ -1,16 +1,11 @@
 import Img from "../models/imgModel.js";
+import fs from "fs";
 
 export const addImg = async (req, res) => {
   try {
-    const { ID, Mask, Folder_Name, Final_tags } = req.body;
-
-    // Create a new Img instance using the provided data
-    const newImg = new Img({ ID, Mask, Folder_Name, Final_tags });
-
-    // Save the new image record to the database
-    const savedImg = await newImg.save();
-
-    res.status(201).json(savedImg);
+    const data = JSON.parse(fs.readFileSync("./output-final.json", "utf-8"));
+    await Img.create(data);
+    res.status(201).json({ message: "ii no Server error" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import * as Unicons from "@iconscout/react-unicons";
@@ -12,7 +12,7 @@ const Login = () => {
     password: "",
   });
 
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const setVal = (e) => {
     const { name, value } = e.target;
@@ -33,8 +33,6 @@ const Login = () => {
       toast.warning("includes @ in your email!");
     } else if (password === "") {
       toast.error("password is required!");
-    } else if (password.length < 6) {
-      toast.error("password must be 6 char!");
     } else {
       try {
         const response = await axios.post(
@@ -53,16 +51,42 @@ const Login = () => {
         const res = response.data;
 
         if (res.status === 201) {
+          toast.success("Login Successfully...");
           localStorage.setItem("usersdatatoken", res.result.token);
-          history("/home");
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          navigate("/home", { replace: "true" });
           setInpval({ ...inpval, email: "", password: "" });
         }
       } catch (error) {
-        // Handle error here (display a message or take other actions)
-        console.error("Error:", error);
+        toast.error(error.response.data.error);
       }
     }
   };
+
+  const DashboardValid = async () => {
+    let token = localStorage.getItem("usersdatatoken");
+
+    const res = await fetch("http://localhost:5000/api/user/validuser", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    });
+
+    const data = await res.json();
+
+    if (data.status === 401 || !data) {
+      console.log("user not valid");
+      navigate("/");
+    } else {
+      navigate("/home");
+    }
+  };
+
+  useEffect(() => {
+    DashboardValid();
+  }, []);
 
   return (
     <section className="bg-gray-500">
@@ -113,7 +137,7 @@ const Login = () => {
               <button
                 type="submit"
                 onClick={loginuser}
-                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="w-full text-white bg-primary-600 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
                 Sign in
               </button>
