@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import * as Unicons from "@iconscout/react-unicons";
 import axios from "axios"; // Import Axios
+import loginImg from "../assets/login.png";
 
 const Login = () => {
   const [passShow, setPassShow] = useState(false);
@@ -89,18 +90,21 @@ const Login = () => {
   }, []);
 
   return (
-    <section className="bg-gray-500">
+    <section className="flex items-center justify-center h-screen bg-gray-100">
       <ToastContainer />
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <div className="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+      <div className="flex flex-wrap items-center justify-center mx-auto shadow-md w-[90%] bg-white md:h-[520px] rounded-3xl max-w-screen-lg overflow-hidden">
+        <div className="w-full md:w-1/2">
+          <img src={loginImg} className="w-[w-[80%] mx-auto py-3 sm:py-10 md:p-0" alt="login" />
+        </div>
+        <div className="w-full md:w-1/2 bg-[#EE7153] h-full flex items-center">
+          <div className="w-[90%] md:w-[80%] mx-auto pt-5 pb-12 md:py-10">
+            <h1 className="text-xl font-bold leading-tight tracking-tight text-white md:text-3xl mb-5 text-center">
               Sign in to your account
             </h1>
             <form className="space-y-4 md:space-y-6" action="#">
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">
-                  Your email
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">
+                  Enter your email
                 </label>
                 <input
                   type="email"
@@ -108,14 +112,14 @@ const Login = () => {
                   onChange={setVal}
                   name="email"
                   id="email"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full px-2.5 md:py-3.5"
                   placeholder="name@company.com"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">
-                  Password
+                <label htmlFor="password" className="block mb-2 text-sm font-medium text-white">
+                  Enter your password
                 </label>
                 <div className="relative">
                   <input
@@ -125,10 +129,10 @@ const Login = () => {
                     name="password"
                     id="password"
                     placeholder={!passShow ? "••••••••" : "Type your password..."}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-green-600 focus:border-primary-600 block w-full px-2.5 md:py-3.5"
                     required
                   />
-                  <span className="absolute inset-y-0 top-2 right-2" onClick={() => setPassShow(!passShow)}>
+                  <span className="absolute inset-y-0 top-2 md:top-3 right-3" onClick={() => setPassShow(!passShow)}>
                     {!passShow ? <Unicons.UilEye color="gray" /> : <Unicons.UilEyeSlash color="gray" />}
                   </span>
                 </div>
@@ -137,7 +141,7 @@ const Login = () => {
               <button
                 type="submit"
                 onClick={loginuser}
-                className="w-full text-white bg-primary-600 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="w-full text-white font-bold bg-[#7C97DA] hover:bg-blue-400 focus:ring-4 focus:outline-none rounded-lg text-sm px-2.5 py-3.5 text-center"
               >
                 Sign in
               </button>

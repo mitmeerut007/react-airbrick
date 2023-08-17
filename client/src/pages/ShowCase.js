@@ -196,17 +196,17 @@ const ShowCase = () => {
           {isLoading ? (
             <Loader />
           ) : images.length > 0 ? (
-            <div className="container mx-auto p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+            <div className="container showcase-container mx-auto p-4">
               {images.map((image, index) => (
                 <div
                   key={index}
                   onClick={() => openImagePopup(image.Mask, image.ID)}
-                  className="relative group aspect-w-3 aspect-h-4 bg-white overflow-hidden rounded-md shadow-md hover:shadow-lg transition duration-300"
+                  className="relative item bg-white overflow-hidden rounded-3xl shadow-md hover:scale-[1.03] hover:shadow-2xl transition duration-300 cursor-pointer"
                 >
                   <img
                     src={`https://virtual-tours-india.in/air_brick/content/${image.Mask}/${image.ID}.jpg`}
                     alt="Image"
-                    className="object-cover rounded-md w-full h-full"
+                    className="object-cover rounded-3xl w-full h-full"
                   />
                 </div>
               ))}
