@@ -37,7 +37,7 @@ const NavLinks = () => {
                     {link.sublink.map((mysublinks, index) => (
                       <Link
                         key={index}
-                        to={`http://localhost:3000/showcase?tags=${mysublinks.name
+                        to={`https://air-brick-front.vercel.app/showcase?tags=${mysublinks.name
                           .toLowerCase()
                           .replace(/\s+/g, "_")
                           .replace(/\//g, "-")}`}
