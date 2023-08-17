@@ -1,5 +1,5 @@
 import express from "express";
-import { addImg, getAllTags, getAllProjects, getImagesByTags } from "../controllers/imgController.js";
+import { addImg, getAllTags, getAllProjects, getImagesByTags} from "../controllers/imgController.js";
 const router = express.Router();
 
 // POST route to add an image
@@ -9,5 +9,4 @@ const router = express.Router();
 router.get("/filter", getImagesByTags); // Add this route
 router.get("/project", getAllProjects); // Add this route
 router.get("/tags", getAllTags); // Add this route
-
 export default router;

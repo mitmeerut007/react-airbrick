@@ -32,7 +32,7 @@ const ShowCase = () => {
     const queryParams = new URLSearchParams(location.search);
     const tagsFromUrl = queryParams.get("tags");
     if (tagsFromUrl) {
-      setSelectedTags(tagsFromUrl.split("-"));
+      setSelectedTags(tagsFromUrl.split("."));
     }
   }, [location.search]);
 
@@ -74,7 +74,7 @@ const ShowCase = () => {
 
     const queryParams = new URLSearchParams();
     if (updatedTags.length > 0) {
-      queryParams.set("tags", updatedTags.join("-"));
+      queryParams.set("tags", updatedTags.join("."));
     }
 
     navigate({ search: queryParams.toString() });
@@ -105,7 +105,7 @@ const ShowCase = () => {
   const renderTagCategory = (category, title) => (
     <div className="categorey">
       <div className="category-title" onClick={toggleCategory}>
-        <h2>{title}</h2>
+        <h2 className="font-semibold">{title}</h2>
         <span>
           <Unicons.UilAngleDown />
         </span>
@@ -125,7 +125,7 @@ const ShowCase = () => {
                   className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                 />
                 <label htmlFor={`tag-${index}`} className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
-                  {tag}
+                  {tag.replace(/_/g, " ").replace(/-/g, "/").toLowerCase()}
                 </label>
               </li>
             ))}
@@ -150,7 +150,7 @@ const ShowCase = () => {
           </div>
         </div>
 
-        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <div className="h-full px-3 py-4 overflow-y-auto">
           <div className="category-dropdown active">{renderTagCategory("Work Areas", "Work Areas")}</div>
           <div className="category-dropdown">{renderTagCategory("Meeting Spaces", "Meeting Spaces")}</div>
           <div className="category-dropdown">{renderTagCategory("Support Spaces", "Support Spaces")}</div>
@@ -172,8 +172,16 @@ const ShowCase = () => {
           <div className="flex">
             <h3 className="font-semibold">Filter</h3>
             <div className="w-px mx-3 bg-gray-300 rounded"></div>
-            <span className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">
-              Green
+            <span className="inline-flex items-center px-2 py-1 mr-2 text-sm font-semibold text-white bg-yellow-400 rounded dark:bg-green-900 dark:text-green-300">
+              Open Office
+            </span>
+
+            <span className="inline-flex items-center px-2 py-1 mr-2 text-sm font-semibold text-black border-2 border-yellow-400 bg-white rounded dark:bg-green-900 dark:text-green-300">
+              Private Office
+            </span>
+
+            <span className="inline-flex items-center px-2 py-1 mr-2 text-sm font-semibold text-black border-2 border-yellow-400 bg-white rounded dark:bg-green-900 dark:text-green-300">
+              Work Lounge
             </span>
           </div>
           <span
