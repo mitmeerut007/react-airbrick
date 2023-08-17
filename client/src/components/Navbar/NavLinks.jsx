@@ -9,7 +9,7 @@ const NavLinks = () => {
     <>
       {links.map((link, index) => (
         <div key={index}>
-          <div className="px-3 text-left md:cursor-pointer group relative bg-teal-600 text-white rounded-md">
+          <div className="px-3 text-left md:cursor-pointer group relative md:bg-teal-600 md:text-white rounded-md">
             <h1
               className="py-2 flex justify-between items-center md:pr-0 pr-5 group"
               onClick={() => {
@@ -35,7 +35,13 @@ const NavLinks = () => {
                   </div>
                   <div className="bg-white p-3 rounded-md shadow-lg max-h-[400px] overflow-y-scroll">
                     {link.sublink.map((mysublinks, index) => (
-                      <Link key={index} to={mysublinks.link}>
+                      <Link
+                        key={index}
+                        to={`http://localhost:3000/showcase?tags=${mysublinks.name
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")
+                          .replace(/\//g, "-")}`}
+                      >
                         <li className="text-sm text-gray-600 p-2 rounded hover:bg-gray-100 hover:text-teal-600">
                           {mysublinks.name}
                         </li>
