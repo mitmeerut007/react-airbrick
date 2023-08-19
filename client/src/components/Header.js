@@ -1,11 +1,14 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LoginContext } from "./Context";
 import axios from "axios";
 import * as Unicons from "@iconscout/react-unicons";
 
 function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const location = useLocation();
+  console.log(location.pathname);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -99,11 +102,11 @@ function Header() {
               }`}
               id="mobile-menu-2"
             >
-              <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+              <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-3 lg:mt-0">
                 <li>
                   <Link
                     to="/home"
-                    className="block py-2 pr-4 pl-3 text-white rounded bg-teal-600 lg:bg-transparent lg:text-teal-600 lg:p-0"
+                    className={`block navlinks ${location.pathname === "/home" ? 'lg:bg-teal-200 bg-teal-600' : ''} hover:bg-teal-200 px-4 py-2 rounded-full text-gray-800`}
                     aria-current="page"
                   >
                     Home
@@ -112,7 +115,7 @@ function Header() {
                 <li>
                   <Link
                     to="/showcase"
-                    className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-teal-600 lg:p-0 lg:border-gray-700"
+                    className={`block navlinks ${location.pathname === "/showcase" ? 'lg:bg-teal-200 bg-teal-600' : ''} hover:bg-teal-200 px-4 py-2 rounded-full text-gray-800`}
                   >
                     Showcase
                   </Link>
@@ -120,25 +123,9 @@ function Header() {
                 <li>
                   <Link
                     to="/project?mask=A"
-                    className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-teal-600 lg:p-0 lg:border-gray-700"
+                    className={`block navlinks ${location.pathname === "/project" ? 'lg:bg-teal-200 bg-teal-600' : ''} hover:bg-teal-200 px-4 py-2 rounded-full text-gray-800`}
                   >
                     Project Sample
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="#"
-                    className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-teal-600 lg:p-0 lg:border-gray-700"
-                  >
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="#"
-                    className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-teal-600 lg:p-0 lg:border-gray-700"
-                  >
-                    Contact
                   </Link>
                 </li>
               </ul>

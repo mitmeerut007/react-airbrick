@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import * as Unicons from "@iconscout/react-unicons";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Layout from "./Layout";
 
 const Project = () => {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -60,8 +61,8 @@ const Project = () => {
   return (
     <Layout>
       <div>
-        <h1>Projects with Mask: {mask}</h1>
-        <div className="container mx-auto p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        <button onClick={()=>navigate("/showcase")} className="ml-3 py-2 px-3 rounded-full bg-yellow-400 font-semibold flex text-white items-center"><span><Unicons.UilArrowLeft/></span>Go Back</button>
+        <div className="container mx-auto p-4 grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {projects.map((image, index) => (
             <div
               key={index}
@@ -73,7 +74,7 @@ const Project = () => {
               <img
                 src={`https://virtual-tours-india.in/air_brick/content/${image.Mask}/${image.ID}.jpg`}
                 alt="Image"
-                className="object-cover rounded-md w-full h-full"
+                className="object-cover rounded-3xl w-full h-full"
               />
             </div>
           ))}

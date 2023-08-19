@@ -322,7 +322,7 @@
             "exposed_duct",
             "linear_pendant",
             "perimeter-grazer",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "wood"
         ]
@@ -444,7 +444,7 @@
             "mounted-cove-lighting",
             "open_office",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "task_chair",
             "wood_floor"
         ]
@@ -527,7 +527,7 @@
             "open_office",
             "people",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wood_floor"
         ]
     },
@@ -795,7 +795,7 @@
             "green_wall",
             "plants",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stairs",
             "suspended_cylinder-round",
             "tiered-seating",
@@ -814,7 +814,7 @@
             "large_meeting_room",
             "plants",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "stairs",
             "suspended_cylinder-round",
@@ -858,7 +858,7 @@
             "open_office",
             "phone-study_booth",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "task_chair"
         ]
@@ -926,7 +926,7 @@
             "other-video",
             "pendant",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "whiteboard_wall"
         ]
     },
@@ -3057,7 +3057,7 @@
             "exposed_duct",
             "large_meeting_room",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "wall_art",
             "whiteboard"
@@ -4014,7 +4014,7 @@
             "pendant",
             "people",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "track-directional"
         ]
@@ -4069,7 +4069,7 @@
             "exposed_duct",
             "linear_pendant",
             "people",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -4400,7 +4400,7 @@
             "cylinder",
             "ottoman-pouf",
             "reception-waiting_area",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "suspended_cylinder-round"
         ]
@@ -4458,7 +4458,7 @@
             "exposed_duct",
             "mounted-cove-lighting",
             "pantry_area-coffee_point",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round"
         ]
     },
@@ -4493,7 +4493,7 @@
             "ottoman-pouf",
             "partition",
             "perimeter-grazer",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_art"
         ]
     },
@@ -4595,7 +4595,7 @@
             "exposed_duct",
             "other-video",
             "pantry_area-coffee_point",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "tube"
         ]
@@ -4609,7 +4609,7 @@
             "cylinder",
             "exposed_duct",
             "pantry_area-coffee_point",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "tube",
             "wall_art",
@@ -7517,7 +7517,7 @@
             "people",
             "plants",
             "reception-waiting_area",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "wall-mounted_display"
         ]
@@ -7808,7 +7808,7 @@
             "perimeter-grazer",
             "plants",
             "recessed_linear",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -11189,7 +11189,7 @@
             "mounted-cove-lighting",
             "pendant",
             "recessed_downlight",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -11243,7 +11243,7 @@
         "Final_tags": [
             "hallway",
             "recessed_downlight",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -16024,7 +16024,7 @@
             "low_stool",
             "perimeter-grazer",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "wall-mounted_display"
         ]
@@ -16039,7 +16039,7 @@
             "low_stool",
             "perimeter-grazer",
             "recessed_linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "task_chair",
             "video_wall"
@@ -16053,7 +16053,7 @@
             "linear_pendant",
             "perimeter-grazer",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge"
         ]
     },
@@ -16076,7 +16076,7 @@
             "linear",
             "panel",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall-mounted_display"
         ]
     },
@@ -16103,7 +16103,7 @@
             "linear",
             "linear_pendant",
             "pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "task_chair"
         ]
@@ -16584,7 +16584,7 @@
             "neon",
             "people",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round"
         ]
     },
@@ -20181,7 +20181,7 @@
             "carpet",
             "chair",
             "chandelier",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "small_meeting_room",
             "wood"
         ]
@@ -24416,7 +24416,7 @@
             "lounge_chair",
             "perimeter-grazer",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stone_tile",
             "wood"
         ]
@@ -29440,7 +29440,7 @@
             "exposed_duct",
             "locker_area",
             "mounted_cylinder-round",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_graphics"
         ]
     },
@@ -32676,7 +32676,7 @@
         "Final_tags": [
             "cement_floor",
             "exposed_duct",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -33322,7 +33322,7 @@
             "high_table",
             "pendant",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "wall-mounted_display"
         ]
@@ -35819,7 +35819,7 @@
             "pendant",
             "perch-ledge",
             "plants",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -37109,7 +37109,7 @@
             "personal-laptop_table",
             "plants",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "task_chair",
             "wood_floor"
         ]
@@ -38552,7 +38552,7 @@
             "cylinder",
             "plants",
             "recessed_downlight",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -40627,7 +40627,7 @@
             "coffee_table",
             "pendant",
             "people",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -42278,7 +42278,7 @@
             "open_office",
             "pendant",
             "people",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "small_open_meeting_space",
             "task_stool",
             "wall-mounted_display"
@@ -42324,7 +42324,7 @@
             "mounted_cylinder-round",
             "people",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "task_chair",
             "wall-mounted_display"
         ]
@@ -42337,7 +42337,7 @@
             "drop_ceiling",
             "glass_graphics",
             "lay-in-troffer",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -43954,7 +43954,7 @@
         "Mask": "KZ",
         "Final_tags": [
             "cement_floor",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wood"
         ]
     },
@@ -44884,7 +44884,7 @@
             "exposed_duct",
             "mounted-cove-lighting",
             "pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "suspended_cylinder-round",
             "wall_art",
@@ -44899,7 +44899,7 @@
             "bench",
             "brick",
             "curtain",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "track-directional",
             "wood",
@@ -44914,7 +44914,7 @@
             "curtain",
             "exposed_duct",
             "linear_pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "track-directional",
             "wood_floor"
@@ -44928,7 +44928,7 @@
             "curtain",
             "exposed_duct",
             "linear_pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "track-directional",
             "wood_floor"
         ]
@@ -44941,7 +44941,7 @@
             "cement_floor",
             "exposed_duct",
             "linear_pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "track-directional",
             "wood_floor"
         ]
@@ -46493,7 +46493,7 @@
             "glass_graphics",
             "glass_walls",
             "recessed_downlight",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -46508,7 +46508,7 @@
             "hallway",
             "people",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stone_tile",
             "wall_art",
             "wood"
@@ -46543,7 +46543,7 @@
             "people",
             "recessed_downlight",
             "sconce",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stone_tile",
             "wall_graphics"
         ]
@@ -48582,7 +48582,7 @@
             "pantry_area-coffee_point",
             "people",
             "recessed_linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_graphics"
         ]
     },
@@ -48596,7 +48596,7 @@
             "linear_pendant",
             "people",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_graphics"
         ]
     },
@@ -48613,7 +48613,7 @@
             "high_table",
             "people",
             "recessed_linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_graphics"
         ]
     },
@@ -48625,7 +48625,7 @@
             "lounge_chair",
             "people",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wood",
             "wood_floor"
         ]
@@ -48642,7 +48642,7 @@
             "locker_area",
             "open_office",
             "people",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "task_chair",
             "wall_graphics",
             "wall-mounted_display"
@@ -48669,7 +48669,7 @@
             "hallway",
             "mounted_linear",
             "people",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_graphics"
         ]
     },
@@ -48711,7 +48711,7 @@
             "linear_pendant",
             "people",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "track-directional",
             "wall_art",
             "wood_floor"
@@ -48828,7 +48828,7 @@
             "linear_pendant",
             "people",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_art",
             "wall_graphics"
         ]
@@ -48843,7 +48843,7 @@
             "linear_pendant",
             "people",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_art",
             "wall_graphics"
         ]
@@ -49383,7 +49383,7 @@
             "branding",
             "green_wall",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stone_tile",
             "suspended_cylinder-round",
             "wood_floor"
@@ -49401,7 +49401,7 @@
             "linear_pendant",
             "phone-study_booth",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "wall_art",
             "wood_floor"
@@ -50825,7 +50825,7 @@
             "lounge_chair",
             "pendant",
             "plants",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -50870,7 +50870,7 @@
             "linear_pendant",
             "pendant",
             "recessed_linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "task_chair"
         ]
     },
@@ -52659,7 +52659,7 @@
             "glass_walls",
             "hallway",
             "occasional_table",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round"
         ]
     },
@@ -52903,7 +52903,7 @@
             "lounge_chair",
             "occasional_table",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "wood"
         ]
@@ -52916,7 +52916,7 @@
             "chair",
             "pendant",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "wood_floor"
         ]
@@ -52956,7 +52956,7 @@
             "low_stool",
             "occasional_table",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "wood_floor"
         ]
@@ -54111,7 +54111,7 @@
             "people",
             "plants",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wood_floor"
         ]
     },
@@ -54124,7 +54124,7 @@
             "people",
             "plants",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "track-directional",
             "wood_floor"
         ]
@@ -54139,7 +54139,7 @@
             "chair",
             "people",
             "plants",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -54151,7 +54151,7 @@
             "plants",
             "podcast-recording_studio",
             "recessed_downlight",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -59639,7 +59639,7 @@
         "Mask": "PF",
         "Final_tags": [
             "mounted-cove-lighting",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -64906,7 +64906,7 @@
         "Mask": "QN",
         "Final_tags": [
             "exterior",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -64932,7 +64932,7 @@
             "perimeter-grazer",
             "reception-waiting_area",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall-mounted_display",
             "wood"
         ]
@@ -65018,7 +65018,7 @@
             "linear_pendant",
             "mounted-cove-lighting",
             "pantry_area-coffee_point",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -66323,7 +66323,7 @@
             "plants",
             "reception-waiting_area",
             "recessed_linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "wall-mounted_display"
         ]
@@ -67580,7 +67580,7 @@
             "pendant",
             "people",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wood_floor"
         ]
     },
@@ -68759,7 +68759,7 @@
             "glass_walls",
             "other-video",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stem_and_bulb"
         ]
     },
@@ -68786,7 +68786,7 @@
             "linear_pendant",
             "personal-laptop_table",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall-mounted_display"
         ]
     },
@@ -68817,7 +68817,7 @@
             "linear",
             "linear_pendant",
             "pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall-mounted_display"
         ]
     },
@@ -73967,7 +73967,7 @@
             "perimeter-grazer",
             "reception-waiting_area",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "task_stool",
             "wall-mounted_display"
         ]
@@ -74090,7 +74090,7 @@
             "open_office",
             "panel",
             "recessed_downlight",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -76938,7 +76938,7 @@
             "parquet_floor",
             "plants",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "table_lamp"
         ]
     },
@@ -79149,7 +79149,7 @@
         "Mask": "UH",
         "Final_tags": [
             "details-close-up_photos",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "task_stool"
         ]
     },
@@ -81525,7 +81525,7 @@
             "chair",
             "glass_walls",
             "pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wood"
         ]
     },
@@ -83212,7 +83212,7 @@
             "linear",
             "pantry_area-coffee_point",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "tube"
         ]
     },
@@ -83225,7 +83225,7 @@
             "cylinder",
             "linear",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "tube"
         ]
     },
@@ -84414,7 +84414,7 @@
             "hot_desk",
             "open_office",
             "pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "task_chair"
         ]
@@ -84458,7 +84458,7 @@
             "glass_walls",
             "pendant",
             "recessed_linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wood"
         ]
     },
@@ -86686,7 +86686,7 @@
             "green_wall",
             "linear_pendant",
             "recessed_downlight",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -86698,7 +86698,7 @@
             "linear",
             "linear_pendant",
             "recessed_downlight",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -86711,7 +86711,7 @@
             "linear_pendant",
             "low_stool",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "task_chair"
         ]
     },
@@ -86797,7 +86797,7 @@
             "chair",
             "linear",
             "linear_pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "small_meeting_room",
             "wall-mounted_display"
         ]
@@ -87115,7 +87115,7 @@
             "glass_walls",
             "hallway",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "tiered-seating",
             "track-directional"
         ]
@@ -87127,7 +87127,7 @@
             "backlight-panel",
             "glass_graphics",
             "glass_walls",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "track-directional"
         ]
     },
@@ -87138,7 +87138,7 @@
             "curtain",
             "folding-moveable_walls",
             "glass_walls",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "tiered-seating"
         ]
     },
@@ -87152,7 +87152,7 @@
             "folding-moveable_walls",
             "glass_walls",
             "linear_pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "tiered-seating",
             "track-directional"
         ]
@@ -87199,7 +87199,7 @@
         "Final_tags": [
             "backlight-panel",
             "glass_walls",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stairs",
             "tiered-seating",
             "track-directional"
@@ -87989,7 +87989,7 @@
         "Final_tags": [
             "cylinder",
             "elevator_lobby",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "track-directional"
         ]
     },
@@ -90678,7 +90678,7 @@
             "open_office",
             "pendant",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stair_and_handrail",
             "stairs",
             "stone_tile",
@@ -90728,7 +90728,7 @@
             "mounted_linear",
             "mounted-cove-lighting",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wood_floor"
         ]
     },
@@ -90806,7 +90806,7 @@
             "green_wall",
             "high_table",
             "mounted-cove-lighting",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wood_floor"
         ]
     },
@@ -91193,7 +91193,7 @@
             "glass_walls",
             "hallway",
             "linear_pendant",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -93426,7 +93426,7 @@
             "open_office",
             "pendant",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "task_chair"
         ]
     },
@@ -93673,7 +93673,7 @@
             "large_meeting_room",
             "linear",
             "mounted_cylinder-round",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -93685,7 +93685,7 @@
             "large_meeting_room",
             "linear",
             "mounted_cylinder-round",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -93696,7 +93696,7 @@
             "linear",
             "recessed_downlight",
             "recessed_linear",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -95059,7 +95059,7 @@
             "occasional_table",
             "pendant",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "suspended_cylinder-round",
             "track-directional",
@@ -95072,7 +95072,7 @@
         "Final_tags": [
             "booth_seating",
             "pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "wood_floor"
         ]
@@ -96133,7 +96133,7 @@
             "people",
             "ramp",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stairs",
             "wall-mounted_display",
             "wood"
@@ -96148,7 +96148,7 @@
             "people",
             "ramp",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_graphics",
             "wood"
         ]
@@ -96179,7 +96179,7 @@
             "curtain",
             "lounge_chair",
             "people",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall-mounted_display",
             "wood"
         ]
@@ -96252,7 +96252,7 @@
             "guardrail",
             "people",
             "perimeter-grazer",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stairs",
             "wall_graphics"
         ]
@@ -96707,7 +96707,7 @@
             "pendant",
             "people",
             "personal-laptop_table",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stairs",
             "wall_graphics"
         ]
@@ -96834,7 +96834,7 @@
             "exposed_duct",
             "hallway",
             "people",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -99141,7 +99141,7 @@
             "pantry_area-coffee_point",
             "partition",
             "recessed_downlight",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -99894,7 +99894,7 @@
             "low_stool",
             "pendant",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall-mounted_display"
         ]
     },
@@ -99920,7 +99920,7 @@
             "occasional_table",
             "pendant",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "tiered-seating"
         ]
     },
@@ -99984,7 +99984,7 @@
             "personal-laptop_table",
             "recessed_downlight",
             "recessed_linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "table_lamp"
         ]
@@ -100386,7 +100386,7 @@
             "phone-study_booth",
             "plants",
             "recessed_linear",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -100924,7 +100924,7 @@
             "branding",
             "chair",
             "perimeter-grazer",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "wall_art"
         ]
@@ -101322,7 +101322,7 @@
             "low_stool",
             "perimeter-grazer",
             "personal-laptop_table",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "suspended_cylinder-round",
             "track-directional",
@@ -101348,7 +101348,7 @@
         "Final_tags": [
             "chair",
             "large_meeting_room",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round"
         ]
     },
@@ -101853,7 +101853,7 @@
         "Final_tags": [
             "branding",
             "pin_board",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -101989,7 +101989,7 @@
             "personal-laptop_table",
             "recessed_downlight",
             "sconce",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -102306,7 +102306,7 @@
             "linear",
             "partition",
             "perimeter-grazer",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "track-directional"
         ]
     },
@@ -102321,7 +102321,7 @@
             "partition",
             "pendant",
             "perimeter-grazer",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "track-directional"
         ]
     },
@@ -102355,7 +102355,7 @@
         "Final_tags": [
             "bench",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "terrace"
         ]
     },
@@ -102380,7 +102380,7 @@
             "mounted-cove-lighting",
             "perimeter-grazer",
             "restroom",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -102492,7 +102492,7 @@
             "pantry_area-coffee_point",
             "pendant",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge"
         ]
     },
@@ -102510,7 +102510,7 @@
             "pantry_area-coffee_point",
             "pendant",
             "plants",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -102601,7 +102601,7 @@
             "mounted-cove-lighting",
             "perimeter-grazer",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_graphics"
         ]
     },
@@ -102966,7 +102966,7 @@
             "linear",
             "linear_pendant",
             "neon",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "small_meeting_room",
             "tube"
         ]
@@ -103000,7 +103000,7 @@
             "pendant",
             "plants",
             "sconce",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "stairs"
         ]
@@ -103139,7 +103139,7 @@
             "pantry_area-coffee_point",
             "pendant",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "stairs",
             "suspended_cylinder-round"
         ]
@@ -103244,7 +103244,7 @@
             "occasional_table",
             "partition",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "stem_and_bulb"
         ]
@@ -103608,7 +103608,7 @@
             "glass_walls",
             "pendant",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "small_meeting_room",
             "suspended_cylinder-round",
             "task_chair"
@@ -103629,7 +103629,7 @@
             "plants",
             "recessed_downlight",
             "sconce",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -103644,7 +103644,7 @@
             "plants",
             "recessed_downlight",
             "sconce",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -103719,7 +103719,7 @@
             "booth_seating",
             "linear",
             "perimeter-grazer",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_graphics"
         ]
     },
@@ -104390,7 +104390,7 @@
             "linear",
             "linear_pendant",
             "recessed_linear",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -104407,7 +104407,7 @@
             "plants",
             "reception-waiting_area",
             "recessed_linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge"
         ]
     },
@@ -104424,7 +104424,7 @@
             "plants",
             "reception-waiting_area",
             "recessed_linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge",
             "wall_art"
         ]
@@ -104465,7 +104465,7 @@
             "linear",
             "linear_pendant",
             "lounge_chair",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall-mounted_display",
             "whiteboard_wall"
         ]
@@ -104489,7 +104489,7 @@
             "glass_walls",
             "hallway",
             "linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "wall_art"
         ]
     },
@@ -104919,7 +104919,7 @@
             "hallway",
             "mounted_cylinder-round",
             "occasional_table",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "sofas-modular_lounge"
         ]
     },
@@ -105638,7 +105638,7 @@
             "personal-laptop_table",
             "plants",
             "recessed_linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "tiered-seating",
             "wall_art"
@@ -105683,7 +105683,7 @@
             "hallway",
             "locker_area",
             "pendant",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round"
         ]
     },
@@ -105725,7 +105725,7 @@
             "glass_walls",
             "hallway",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round"
         ]
     },
@@ -105778,7 +105778,7 @@
             "glass_walls",
             "partition",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round",
             "wall_graphics"
         ]
@@ -105894,7 +105894,7 @@
             "linear_pendant",
             "mounted-cove-lighting",
             "sconce",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "track-directional"
         ]
     },
@@ -106094,7 +106094,7 @@
             "perimeter-grazer",
             "personal-laptop_table",
             "plants",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "suspended_cylinder-round"
         ]
     },
@@ -106125,7 +106125,7 @@
             "hallway",
             "linear",
             "recessed_linear",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "tube"
         ]
     },
@@ -106324,7 +106324,7 @@
             "perimeter-grazer",
             "plants",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "terrace",
             "tiered-seating"
         ]
@@ -106419,7 +106419,7 @@
             "panel",
             "pendant",
             "plants",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -106520,7 +106520,7 @@
             "halo",
             "mounted_cylinder-round",
             "recessed_downlight",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "small_meeting_room"
         ]
     },
@@ -106533,7 +106533,7 @@
             "glass_walls",
             "panel",
             "recessed_downlight",
-            "signs_&_wayfinding"
+            "signs_and_wayfinding"
         ]
     },
     {
@@ -106616,7 +106616,7 @@
             "recessed_downlight",
             "recessed_linear",
             "sconce",
-            "signs_&_wayfinding",
+            "signs_and_wayfinding",
             "task_chair"
         ]
     },

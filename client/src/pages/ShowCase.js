@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import "./style.css";
 import Loader from "../components/Loader";
@@ -8,15 +8,21 @@ import NoResultsComponent from "../components/NoResultsComponent";
 import * as Unicons from "@iconscout/react-unicons";
 import Layout from "./Layout";
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const ShowCase = () => {
   const [images, setImages] = useState([]);
   const [tags, setTags] = useState([]);
   const [filterMenu, setfilterMenu] = useState(false);
   const [selectedTags, setSelectedTags] = useState([]);
+
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0); // Initialize totalPages to 0
-  const [selectedImage, setSelectedImage] = useState({ mask: "", ID: "" });
+  const [selectedImage, setSelectedImage] = useState({ Mask: "", ID: "" });
+  const [projectUrl, setProjectUrl] = useState("");
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -28,6 +34,9 @@ const ShowCase = () => {
     },
   };
 
+  const params = new URLSearchParams(location.search);
+  const getParams = params.get("tags");
+
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const tagsFromUrl = queryParams.get("tags");
@@ -35,6 +44,12 @@ const ShowCase = () => {
       setSelectedTags(tagsFromUrl.split("."));
     }
   }, [location.search]);
+
+  useEffect(() => {
+    // Construct the URL based on the selectedImage.mask
+    const url = `/project?mask=${selectedImage?.Mask}`;
+    setProjectUrl(url);
+  }, [selectedImage]);
 
   useEffect(() => {
     fetchImagesAndTags();
@@ -76,7 +91,6 @@ const ShowCase = () => {
     if (updatedTags.length > 0) {
       queryParams.set("tags", updatedTags.join("."));
     }
-
     navigate({ search: queryParams.toString() });
     setCurrentPage(1);
   };
@@ -86,15 +100,11 @@ const ShowCase = () => {
   };
 
   const openImagePopup = (Mask, ID) => {
-    setSelectedImage({ mask: Mask, ID: ID });
+    setSelectedImage({ Mask: Mask, ID: ID });
   };
 
   const closeImagePopup = () => {
     setSelectedImage(null);
-  };
-
-  const goTOProject = (mask) => {
-    navigate(`/project?mask=${mask}`);
   };
 
   const toggleCategory = (event) => {
@@ -134,6 +144,26 @@ const ShowCase = () => {
     </div>
   );
 
+  const CustomPrevArrow = (props) => (
+    <div className="slick-arrow custom-prev-arrow" onClick={props.onClick}>
+      <span>
+        <Unicons.UilAngleLeft />
+      </span>
+    </div>
+  );
+
+  const CustomNextArrow = (props) => (
+    <div className="slick-arrow custom-next-arrow" onClick={props.onClick}>
+      <span>
+        <Unicons.UilAngleRight />
+      </span>
+    </div>
+  );
+
+  const initialSlideIndex = selectedImage
+    ? images.findIndex((image) => image?.Mask === selectedImage.Mask && image.ID === selectedImage.ID)
+    : 0;
+
   return (
     <Layout>
       <aside
@@ -168,27 +198,40 @@ const ShowCase = () => {
       </aside>
 
       <div className="results-box">
-        <div className="bg-white p-3 flex justify-between items-center">
-          <div className="flex">
-            <h3 className="font-semibold">Filter</h3>
-            <div className="w-px mx-3 bg-gray-300 rounded"></div>
-            <span className="inline-flex items-center px-2 py-1 mr-2 text-sm font-semibold text-white bg-yellow-400 rounded dark:bg-green-900 dark:text-green-300">
+        <div className="px-2 md:px-4 flex justify-center md:justify-between items-center flex-wrap gap-5">
+          <div className="flex showcase-tags items-center">
+            <Link
+              to="/showcase?tags=open_office"
+              className={`${
+                getParams?.includes("open_office") ? "active" : ""
+              } inline-flex items-center px-3 py-2 mr-3 text-xs sm:text-sm font-semibold border-yellow-400 hover:bg-yellow-400 border-2  rounded-full`}
+            >
               Open Office
-            </span>
+            </Link>
 
-            <span className="inline-flex items-center px-2 py-1 mr-2 text-sm font-semibold text-black border-2 border-yellow-400 bg-white rounded dark:bg-green-900 dark:text-green-300">
+            <Link
+              to="/showcase?tags=private_office"
+              className={`${
+                getParams?.includes("private_office") ? "active" : ""
+              } inline-flex items-center px-3 py-2 mr-3 text-xs sm:text-sm font-semibold border-yellow-400 hover:bg-yellow-400 border-2 rounded-full`}
+            >
               Private Office
-            </span>
+            </Link>
 
-            <span className="inline-flex items-center px-2 py-1 mr-2 text-sm font-semibold text-black border-2 border-yellow-400 bg-white rounded dark:bg-green-900 dark:text-green-300">
+            <Link
+              to="/showcase?tags=work_lounge"
+              className={`${
+                getParams?.includes("work_lounge") ? "active" : ""
+              } inline-flex items-center px-3 py-2 mr-3 text-xs sm:text-sm font-semibold border-yellow-400 hover:bg-yellow-400 border-2 rounded-full`}
+            >
               Work Lounge
-            </span>
+            </Link>
           </div>
           <span
             onClick={() => setfilterMenu(!filterMenu)}
-            className="text-sm px-3 py-2 bg-teal-600 text-white rounded-md flex gap-3 cursor-pointer"
+            className="text-sm px-3 py-2 bg-teal-600 text-white rounded-full flex gap-3 cursor-pointer"
           >
-            View Filters <Unicons.UilApps />
+            View Filters <Unicons.UilApps size="1.2rem" />
           </span>
         </div>
 
@@ -196,22 +239,22 @@ const ShowCase = () => {
           {isLoading ? (
             <Loader />
           ) : images.length > 0 ? (
-            <div className="container showcase-container mx-auto p-4">
+            <div className="container showcase-container mx-auto p-2 md:p-4">
               {images.map((image, index) => (
                 <div
                   key={index}
-                  onClick={() => openImagePopup(image.Mask, image.ID)}
+                  onClick={() => openImagePopup(image?.Mask, image.ID)}
                   className="relative item bg-white overflow-hidden rounded-3xl shadow-md hover:scale-[1.03] hover:shadow-2xl transition duration-300 cursor-pointer"
                 >
                   <img
-                    src={`https://virtual-tours-india.in/air_brick/content/${image.Mask}/${image.ID}.jpg`}
+                    src={`https://virtual-tours-india.in/air_brick/content/${image?.Mask}/${image.ID}.jpg`}
                     alt="Image"
                     className="object-cover rounded-3xl w-full h-full"
                   />
                 </div>
               ))}
 
-              {selectedImage?.mask && (
+              {selectedImage?.Mask && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center pop-backdrop">
                   <div className="fixed inset-0 overflow-auto">
                     <div className="flex items-center justify-center min-h-screen px-4">
@@ -228,20 +271,38 @@ const ShowCase = () => {
                           </button>
                         </div>
                         {/* Modal body */}
-                        <div className="p-6 space-y-3">
-                          <div className="flex justify-center">
-                            <img
-                              src={`https://virtual-tours-india.in/air_brick/content/${selectedImage.mask}/${selectedImage.ID}.jpg`}
-                              className="max-w-3xl h-auto mx-auto rounded-md"
-                              style={{ maxHeight: "70vh" }} // Set maximum height for vertical images
-                              alt="Selected"
-                            />
+                        <div className="p-3 md:p-6">
+                          <div className="flex justify-center slider-container ">
+                            <Slider
+                              arrows
+                              infinite
+                              speed={500}
+                              prevArrow={<CustomPrevArrow />} // Custom previous arrow
+                              nextArrow={<CustomNextArrow />}
+                              initialSlide={initialSlideIndex}
+                              afterChange={(currentSlide) => {
+                                const currentImage = images[currentSlide];
+                                if (currentImage?.Mask) {
+                                  setProjectUrl(`/project?mask=${currentImage?.Mask}`);
+                                }
+                              }}
+                            >
+                              {images.map((image, index) => (
+                                <div key={index} className="slider-image-container">
+                                  <img
+                                    src={`https://virtual-tours-india.in/air_brick/content/${image?.Mask}/${image.ID}.jpg`}
+                                    className="mx-auto rounded-md slider-img"
+                                    alt={`Project ${index}`}
+                                  />
+                                </div>
+                              ))}
+                            </Slider>
                           </div>
                         </div>
                         {/* Modal footer */}
                         <div className="flex items-center justify-end p-5 pt-1 space-x-2 rounded-b">
                           <button
-                            onClick={() => goTOProject(selectedImage.mask)}
+                            onClick={() => window.open(projectUrl, "_blank")}
                             type="button"
                             className="text-white bg-green-500 hover:bg-green-600 py-2 px-4 rounded-lg"
                           >
