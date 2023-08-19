@@ -22,7 +22,7 @@ export const getImages = async (req, res) => {
   }
 };
 
-const ITEMS_PER_PAGE = 25; // Number of items per page
+const ITEMS_PER_PAGE = 28; // Number of items per page
 
 export const getImagesByTags = async (req, res) => {
   try {

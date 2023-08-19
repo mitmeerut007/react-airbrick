@@ -139,7 +139,7 @@ export const links = [
     sublink: [
       { name: "Branding", link: "/" },
       { name: "Glass Graphics", link: "/" },
-      { name: "Signs & Wayfinding", link: "/" },
+      { name: "Signs And Wayfinding", link: "/" },
       { name: "Street Art", link: "/" },
       { name: "Wall Graphics", link: "/" },
     ],

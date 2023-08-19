@@ -9,8 +9,8 @@ const Login = () => {
   const [passShow, setPassShow] = useState(false);
 
   const [inpval, setInpval] = useState({
-    email: "",
-    password: "",
+    email: "admin@123.com",
+    password: "admin@123",
   });
 
   const navigate = useNavigate();
@@ -90,7 +90,7 @@ const Login = () => {
   }, []);
 
   return (
-    <section className="flex items-center justify-center h-screen bg-gray-100">
+    <section className="flex items-center justify-center h-screen login-container">
       <ToastContainer />
       <div className="flex flex-wrap items-center justify-center mx-auto shadow-md w-[90%] bg-white md:h-[520px] rounded-3xl max-w-screen-lg overflow-hidden">
         <div className="w-full md:w-1/2">
