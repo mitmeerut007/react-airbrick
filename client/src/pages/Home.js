@@ -18,11 +18,7 @@ const Home = () => {
             {/* Card 1 */}
             <Link to="/showcase?tags=open_office">
               <div className="relative overflow-hidden bg-white rounded-lg shadow-md">
-                <img
-                  src="https://virtual-tours-india.in/air_brick/content/F/5431.jpg"
-                  alt="Image 1"
-                  className="w-full h-[250px] object-cover"
-                />
+                <img src="/F/5431.jpg" alt="Image 1" className="w-full h-[250px] object-cover" />
                 <div className="absolute inset-0 flex items-end justify-start p-10 bg-black bg-opacity-25 hover:bg-opacity-40 text-white transition-opacity opacity-100">
                   <div className="text-left">
                     <h2 className="text-4xl mb-4 font-bold">Open Office</h2>
@@ -34,11 +30,7 @@ const Home = () => {
             {/* Card 2 */}
             <Link to="/showcase?tags=private_office">
               <div className="relative overflow-hidden bg-white rounded-lg shadow-md">
-                <img
-                  src="https://virtual-tours-india.in/air_brick/content/S/8683.jpg"
-                  alt="Image 1"
-                  className="w-full h-[250px] object-cover"
-                />
+                <img src="/S/8683.jpg" alt="Image 1" className="w-full h-[250px] object-cover" />
                 <div className="absolute inset-0 flex items-end justify-start p-10 bg-black bg-opacity-25 hover:bg-opacity-40 text-white transition-opacity opacity-100">
                   <div className="text-left">
                     <h2 className="text-4xl mb-4 font-bold">Private Office</h2>
@@ -50,11 +42,7 @@ const Home = () => {
             {/* Card 3 */}
             <Link to="/showcase?tags=work_lounge">
               <div className="relative overflow-hidden bg-white rounded-lg shadow-md">
-                <img
-                  src="https://virtual-tours-india.in/air_brick/content/E/1601.jpg"
-                  alt="Image 1"
-                  className="w-full h-[250px] object-cover"
-                />
+                <img src="/E/1601.jpg" alt="Image 1" className="w-full h-[250px] object-cover" />
                 <div className="absolute inset-0 flex items-end justify-start p-10 bg-black bg-opacity-25 hover:bg-opacity-40 text-white transition-opacity opacity-100">
                   <div className="text-left">
                     <h2 className="text-4xl mb-4 font-bold">Work Lounge</h2>
@@ -82,11 +70,7 @@ const Home = () => {
                         .replace(/\//g, "-")}`}
                     >
                       <div className="relative overflow-hidden bg-white rounded-lg shadow-md cursor-pointer">
-                        <img
-                          src={`https://virtual-tours-india.in/air_brick/content${sublink?.imgLink}.jpg`}
-                          alt="Image 1"
-                          className="w-full h-[120px] object-cover"
-                        />
+                        <img src={`${sublink?.imgLink}.jpg`} alt="Image 1" className="w-full h-[120px] object-cover" />
                         <div className="absolute inset-0 flex items-center justify-center p-10 bg-black bg-opacity-25 hover:bg-opacity-40 text-white transition-opacity opacity-100">
                           <div className="text-left">
                             <h2 className="text-lg font-bold">{sublink.name}</h2>

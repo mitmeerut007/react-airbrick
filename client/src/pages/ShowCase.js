@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
@@ -11,6 +11,7 @@ import Layout from "./Layout";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import filterIcon from "../assets/filter-icon.svg";
 
 const ShowCase = () => {
   const [images, setImages] = useState([]);
@@ -22,7 +23,7 @@ const ShowCase = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0); // Initialize totalPages to 0
   const [selectedImage, setSelectedImage] = useState({ Mask: "", ID: "" });
-  const [projectUrl, setProjectUrl] = useState("");
+  const [projectUrl, setProjectUrl] = useState({ Mask: "", ID: "" });
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -46,9 +47,7 @@ const ShowCase = () => {
   }, [location.search]);
 
   useEffect(() => {
-    // Construct the URL based on the selectedImage.mask
-    const url = `/project?mask=${selectedImage?.Mask}`;
-    setProjectUrl(url);
+    setProjectUrl({ Mask: selectedImage?.Mask, ID: selectedImage?.ID });
   }, [selectedImage]);
 
   useEffect(() => {
@@ -121,21 +120,21 @@ const ShowCase = () => {
         </span>
       </div>
       <div className="category-content">
-        <ul className="space-y-2 font-medium">
+        <ul className="font-medium space-y-2">
           {tags[category]
             ?.sort() // Sort the tags alphabetically
             .map((tag, index) => (
               <li key={index} className="flex items-center">
                 <input
-                  id={`tag-${index}`}
+                  id={`tag-${tag}`}
                   type="checkbox"
                   value={tag}
                   checked={selectedTags.includes(tag)}
                   onChange={handleTagChange}
                   className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                 />
-                <label htmlFor={`tag-${index}`} className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
-                  {tag.replace(/_/g, " ").replace(/-/g, "/").toLowerCase()}
+                <label htmlFor={`tag-${tag}`} className="cursor-pointer w-full ml-2 text-sm font-sm text-gray-900 dark:text-gray-100">
+                  {tag.replace(/_/g, " ").replace(/-/g, "/")}
                 </label>
               </li>
             ))}
@@ -164,6 +163,25 @@ const ShowCase = () => {
     ? images.findIndex((image) => image?.Mask === selectedImage.Mask && image.ID === selectedImage.ID)
     : 0;
 
+  const downloadImage = () => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = `${projectUrl?.Mask}/${projectUrl?.ID}.jpg`;
+    img.onload = () => {
+      // create Canvas
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+      // create <a> tag
+      const a = document.createElement("a");
+      a.download = `air_brick_${projectUrl?.ID}.jpg`;
+      a.href = canvas.toDataURL("image/jpg");
+      a.click();
+    };
+  };
+
   return (
     <Layout>
       <aside
@@ -175,7 +193,7 @@ const ShowCase = () => {
       >
         <div className="flex justify-between px-3 items-center mb-5">
           <h2 className="text-2xl font-bold">Filter</h2>
-          <div onClick={() => setfilterMenu(false)} className="bg-teal-200 rounded-md">
+          <div onClick={() => setfilterMenu(false)} className="bg-[#efefef] p-2 rounded-full">
             <Unicons.UilTimes />
           </div>
         </div>
@@ -198,7 +216,14 @@ const ShowCase = () => {
       </aside>
 
       <div className="results-box">
-        <div className="px-2 md:px-4 flex justify-center md:justify-between items-center flex-wrap gap-5">
+        <div className="px-2 md:px-4 flex items-center flex-wrap gap-3 md:gap-14">
+          <span
+            onClick={() => setfilterMenu(!filterMenu)}
+            className="text-sm w-12 h-12 bg-[#efefef] rounded-full flex justify-center cursor-pointer"
+          >
+            <img width="20px" src={filterIcon} />
+          </span>
+
           <div className="flex showcase-tags items-center">
             <Link
               to="/showcase?tags=open_office"
@@ -227,12 +252,6 @@ const ShowCase = () => {
               Work Lounge
             </Link>
           </div>
-          <span
-            onClick={() => setfilterMenu(!filterMenu)}
-            className="text-sm px-3 py-2 bg-teal-600 text-white rounded-full flex gap-3 cursor-pointer"
-          >
-            View Filters <Unicons.UilApps size="1.2rem" />
-          </span>
         </div>
 
         <div>
@@ -244,10 +263,10 @@ const ShowCase = () => {
                 <div
                   key={index}
                   onClick={() => openImagePopup(image?.Mask, image.ID)}
-                  className="relative item bg-white overflow-hidden rounded-3xl shadow-md hover:scale-[1.03] hover:shadow-2xl transition duration-300 cursor-pointer"
+                  className="relative item bg-white overflow-hidden rounded-3xl shadow-md hover:scale-[1.07] hover:shadow-2xl transition duration-300 cursor-pointer"
                 >
                   <img
-                    src={`https://virtual-tours-india.in/air_brick/content/${image?.Mask}/${image.ID}.jpg`}
+                    src={`/${image?.Mask}/${image.ID}.jpg`}
                     alt="Image"
                     className="object-cover rounded-3xl w-full h-full"
                   />
@@ -260,18 +279,17 @@ const ShowCase = () => {
                     <div className="flex items-center justify-center min-h-screen px-4">
                       <div className="relative w-full max-w-5xl mx-auto rounded-lg shadow bg-white dark:bg-gray-700">
                         {/* Modal header */}
-                        <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Project Details</h3>
+                        <div className="flex items-start justify-between px-4 rounded-t ">
                           <button
                             onClick={closeImagePopup}
                             type="button"
-                            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            className="absolute top-3 right-3 sm:top-10 sm:right-10 z-50 bg-[#efefef] hover:bg-gray-200 hover:text-gray-900 rounded-full text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
                           >
                             <Unicons.UilTimes />
                           </button>
                         </div>
                         {/* Modal body */}
-                        <div className="p-3 md:p-6">
+                        <div className="p-5">
                           <div className="flex justify-center slider-container ">
                             <Slider
                               arrows
@@ -283,15 +301,15 @@ const ShowCase = () => {
                               afterChange={(currentSlide) => {
                                 const currentImage = images[currentSlide];
                                 if (currentImage?.Mask) {
-                                  setProjectUrl(`/project?mask=${currentImage?.Mask}`);
+                                  setProjectUrl({ Mask: currentImage?.Mask, ID: currentImage?.ID });
                                 }
                               }}
                             >
                               {images.map((image, index) => (
                                 <div key={index} className="slider-image-container">
                                   <img
-                                    src={`https://virtual-tours-india.in/air_brick/content/${image?.Mask}/${image.ID}.jpg`}
-                                    className="mx-auto rounded-md slider-img"
+                                    src={`/${image?.Mask}/${image.ID}.jpg`}
+                                    className="mx-auto slider-img"
                                     alt={`Project ${index}`}
                                   />
                                 </div>
@@ -300,9 +318,17 @@ const ShowCase = () => {
                           </div>
                         </div>
                         {/* Modal footer */}
-                        <div className="flex items-center justify-end p-5 pt-1 space-x-2 rounded-b">
+                        <div className="flex items-center justify-end p-5 pt-1 space-x-3 rounded-b">
                           <button
-                            onClick={() => window.open(projectUrl, "_blank")}
+                            onClick={downloadImage}
+                            type="button"
+                            className="bg-gray-300 py-2 px-3 rounded-lg hover:bg-green-400 gap-2 flex items-center justify-center cursor-pointer"
+                          >
+                            <Unicons.UilImageDownload />
+                          </button>
+
+                          <button
+                            onClick={() => window.open(`/project?mask=${projectUrl?.Mask}`, "_blank")}
                             type="button"
                             className="text-white bg-green-500 hover:bg-green-600 py-2 px-4 rounded-lg"
                           >

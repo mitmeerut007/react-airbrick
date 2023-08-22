@@ -61,18 +61,24 @@ const Project = () => {
   return (
     <Layout>
       <div>
-        <button onClick={()=>navigate("/showcase")} className="ml-3 py-2 px-3 rounded-full bg-yellow-400 font-semibold flex text-white items-center"><span><Unicons.UilArrowLeft/></span>Go Back</button>
-        <div className="container mx-auto p-4 grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        <button
+          onClick={() => navigate("/showcase")}
+          className="ml-3 py-2 px-3 rounded-full bg-yellow-400 font-semibold flex text-white items-center"
+        >
+          <span>
+            <Unicons.UilArrowLeft />
+          </span>
+          Go Back
+        </button>
+        <div className="container showcase-container mx-auto p-2 md:p-4">
           {projects.map((image, index) => (
             <div
               key={index}
-              onClick={() =>
-                openImagePopup(`https://virtual-tours-india.in/air_brick/content/${image.Mask}/${image.ID}.jpg`)
-              }
-              className="relative group aspect-w-3 aspect-h-4 bg-white overflow-hidden rounded-md shadow-md hover:shadow-lg transition duration-300"
+              onClick={() => openImagePopup(`/${image.Mask}/${image.ID}.jpg`)}
+              className="relative item bg-white overflow-hidden rounded-3xl shadow-md hover:scale-[1.07] hover:shadow-2xl transition duration-300 cursor-pointer"
             >
               <img
-                src={`https://virtual-tours-india.in/air_brick/content/${image.Mask}/${image.ID}.jpg`}
+                src={`/${image.Mask}/${image.ID}.jpg`}
                 alt="Image"
                 className="object-cover rounded-3xl w-full h-full"
               />
@@ -83,20 +89,19 @@ const Project = () => {
           <div className="fixed inset-0 z-50 flex items-center justify-center pop-backdrop">
             <div className="fixed inset-0 overflow-auto">
               <div className="flex items-center justify-center min-h-screen px-4">
-                <div className="relative w-full max-w-5xl mx-auto rounded-lg shadow bg-white dark:bg-gray-700">
+                <div className="relative w-full max-w-5xl mx-auto rounded-lg shadow bg-white">
                   {/* Modal header */}
-                  <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Images Slider</h3>
+                  <div className="flex items-start justify-between rounded-t">
                     <button
                       onClick={closeImagePopup}
                       type="button"
-                      className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                      className="absolute top-10 right-10 z-50 bg-[#efefef] hover:bg-gray-200 hover:text-gray-900 rounded-full text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
                     >
                       <Unicons.UilTimes />
                     </button>
                   </div>
                   {/* Modal body */}
-                  <div className="p-3 md:p-6">
+                  <div className="p-5">
                     <div className="flex justify-center slider-container ">
                       <Slider
                         arrows
@@ -105,16 +110,14 @@ const Project = () => {
                         prevArrow={<CustomPrevArrow />} // Custom previous arrow
                         nextArrow={<CustomNextArrow />}
                         initialSlide={projects.findIndex(
-                          (project) =>
-                            `https://virtual-tours-india.in/air_brick/content/${project.Mask}/${project.ID}.jpg` ===
-                            selectedImage,
+                          (project) => `/${project.Mask}/${project.ID}.jpg` === selectedImage,
                         )}
                       >
                         {projects.map((project, index) => (
                           <div key={index} className="slider-image-container">
                             <img
-                              src={`https://virtual-tours-india.in/air_brick/content/${project.Mask}/${project.ID}.jpg`}
-                              className="mx-auto rounded-md slider-img"
+                              src={`/${project.Mask}/${project.ID}.jpg`}
+                              className="mx-auto slider-img"
                               alt={`Project ${index}`}
                             />
                           </div>

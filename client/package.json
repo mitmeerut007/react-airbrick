@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "proxy": "https://virtual-tours-india.in/air_brick/content",
   "private": true,
   "dependencies": {
     "@iconscout/react-unicons": "^2.0.2",

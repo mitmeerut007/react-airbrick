@@ -65,7 +65,6 @@
   align-items: center;
   justify-content: center;
   height: calc(100vh - 10rem);
-  padding: 0 10px;
   border: none !important;
   outline: none !important;
 }
@@ -183,7 +182,7 @@
 
 @media (max-width: 1024px) {
   .slider-image-container {
-    height: 50vh !important;
+    height: 30vh !important;
   }
 }
 
