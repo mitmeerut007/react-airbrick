@@ -36,38 +36,25 @@ export const addUser = async (req, res) => {
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
-  if (!email || !password) {
-    res.status(422).json({ error: "fill all the details" });
-  }
-
   try {
-    const userValid = await User.findOne({ email: email });
+    if (!email || !password) return res.status(422).json({ error: "Fill in all the details" });
 
-    if (userValid) {
-      const isMatch = await bcrypt.compare(password, userValid.password);
+    const user = await User.findOne({ email });
 
-      if (!isMatch) {
-        res.status(422).json({ error: "invalid details" });
-      } else {
-        // token generate
-        const token = await userValid.generateAuthToken();
+    if (!user || !(await bcrypt.compare(password, user.password)))
+      return res.status(422).json({ status: 422, error: "Invalid details" });
 
-        // cookiegenerate
-        res.cookie("usercookie", token, {
-          expires: new Date(Date.now() + 9000000),
-          httpOnly: true,
-        });
+    const token = await user.generateAuthToken();
 
-        const result = {
-          userValid,
-          token,
-        };
-        res.status(201).json({ status: 201, result });
-      }
-    }
+    res.cookie("usercookie", token, {
+      expires: new Date(Date.now() + 9000000),
+      httpOnly: true,
+    });
+
+    res.status(201).json({ status: 201, result: { user, token } });
   } catch (error) {
-    res.status(401).json(error);
-    console.log(error);
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 

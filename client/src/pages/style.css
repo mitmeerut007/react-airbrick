@@ -1,3 +1,7 @@
+.login-container {
+  background: #212121 url("https://demos.creative-tim.com/notus-pro-react/static/media/bg-presentation.d97f41e0.svg")
+    no-repeat center center;
+}
 .pagination {
   display: flex;
   justify-content: center;
@@ -56,18 +60,11 @@
   width: 100%;
 }
 
-@media (max-width: 1024px) {
-  .slider-image-container {
-    height: 50vh !important;
-  }
-}
-
 .slider-image-container {
   display: flex !important;
   align-items: center;
   justify-content: center;
   height: calc(100vh - 10rem);
-  padding: 0 10px;
   border: none !important;
   outline: none !important;
 }
@@ -117,3 +114,81 @@
   right: 0;
   margin-right: 20px; /* Add some spacing from the edge */
 }
+
+.category-dropdown {
+  margin-bottom: 10px; /* Adjust spacing between categories */
+}
+
+.category-title {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-content {
+  display: none;
+  margin-top: 10px; /* Adjust spacing between title and content */
+}
+
+.category-dropdown.active .category-content {
+  display: block;
+}
+
+.showcase-tags a.active {
+  background-color: rgb(227 160 8) !important;
+  color: rgb(255, 255, 255) !important;
+}
+.showcase-container {
+  -moz-column-count: 1;
+  column-count: 1;
+  -moz-column-gap: 20px;
+  column-gap: 20px;
+  -moz-column-fill: balance;
+  column-fill: balance;
+  margin: 20px auto 0;
+  padding: 2rem;
+}
+.showcase-container .item {
+  display: inline-block;
+  margin: 0 0 20px;
+  page-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  break-inside: avoid;
+  width: 100%;
+}
+.showcase-container .item img {
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 600px) {
+  .showcase-container {
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+@media (min-width: 900px) {
+  .showcase-container {
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+}
+@media (min-width: 1200px) {
+  .showcase-container {
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+}
+
+@media (max-width: 1024px) {
+  .slider-image-container {
+    height: 30vh !important;
+  }
+}
+
+@media (max-width: 850px) {
+  .popup-img {
+    max-width: 100% !important;
+  }
+}
+
