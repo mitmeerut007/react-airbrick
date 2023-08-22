@@ -18,7 +18,7 @@ const Home = () => {
             {/* Card 1 */}
             <Link to="/showcase?tags=open_office">
               <div className="relative overflow-hidden bg-white rounded-lg shadow-md">
-                <img src="/F/5431.jpg" alt="Image 1" className="w-full h-[250px] object-cover" />
+                <img src="https://virtual-tours-india.in/air_brick/content/F/5431.jpg" alt="Image 1" className="w-full h-[250px] object-cover" />
                 <div className="absolute inset-0 flex items-end justify-start p-10 bg-black bg-opacity-25 hover:bg-opacity-40 text-white transition-opacity opacity-100">
                   <div className="text-left">
                     <h2 className="text-4xl mb-4 font-bold">Open Office</h2>
@@ -42,7 +42,7 @@ const Home = () => {
             {/* Card 3 */}
             <Link to="/showcase?tags=work_lounge">
               <div className="relative overflow-hidden bg-white rounded-lg shadow-md">
-                <img src="/E/1601.jpg" alt="Image 1" className="w-full h-[250px] object-cover" />
+                <img src="https://virtual-tours-india.in/air_brick/content/E/1601.jpg" alt="Image 1" className="w-full h-[250px] object-cover" />
                 <div className="absolute inset-0 flex items-end justify-start p-10 bg-black bg-opacity-25 hover:bg-opacity-40 text-white transition-opacity opacity-100">
                   <div className="text-left">
                     <h2 className="text-4xl mb-4 font-bold">Work Lounge</h2>
