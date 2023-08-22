@@ -7,7 +7,6 @@ import imgRoutes from "./routes/imgRoutes.js";
 import tagRoutes from "./routes/tagRoutes.js";
 import cookieParser from "cookie-parser";
 
-
 dotenv.config({ path: "./.env" });
 const PORT = process.env.PORT || 5000;
 
