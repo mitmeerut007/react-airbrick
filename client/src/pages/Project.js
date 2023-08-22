@@ -78,7 +78,7 @@ const Project = () => {
               className="relative item bg-white overflow-hidden rounded-3xl shadow-md hover:scale-[1.07] hover:shadow-2xl transition duration-300 cursor-pointer"
             >
               <img
-                src={`/${image.Mask}/${image.ID}.jpg`}
+                src={`https://virtual-tours-india.in/air_brick/content/${image.Mask}/${image.ID}.jpg`}
                 alt="Image"
                 className="object-cover rounded-3xl w-full h-full"
               />
@@ -116,7 +116,7 @@ const Project = () => {
                         {projects.map((project, index) => (
                           <div key={index} className="slider-image-container">
                             <img
-                              src={`/${project.Mask}/${project.ID}.jpg`}
+                              src={`https://virtual-tours-india.in/air_brick/content/${project.Mask}/${project.ID}.jpg`}
                               className="mx-auto slider-img"
                               alt={`Project ${index}`}
                             />

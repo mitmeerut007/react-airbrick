@@ -166,7 +166,7 @@ const ShowCase = () => {
   const downloadImage = () => {
     const img = new Image();
     img.crossOrigin = "anonymous";
-    img.src = `${projectUrl?.Mask}/${projectUrl?.ID}.jpg`;
+    img.src = `https://virtual-tours-india.in/air_brick/content/${projectUrl?.Mask}/${projectUrl?.ID}.jpg`;
     img.onload = () => {
       // create Canvas
       const canvas = document.createElement("canvas");
@@ -266,7 +266,7 @@ const ShowCase = () => {
                   className="relative item bg-white overflow-hidden rounded-3xl shadow-md hover:scale-[1.07] hover:shadow-2xl transition duration-300 cursor-pointer"
                 >
                   <img
-                    src={`/${image?.Mask}/${image.ID}.jpg`}
+                    src={`https://virtual-tours-india.in/air_brick/content/${image?.Mask}/${image.ID}.jpg`}
                     alt="Image"
                     className="object-cover rounded-3xl w-full h-full"
                   />
@@ -308,7 +308,7 @@ const ShowCase = () => {
                               {images.map((image, index) => (
                                 <div key={index} className="slider-image-container">
                                   <img
-                                    src={`/${image?.Mask}/${image.ID}.jpg`}
+                                    src={`https://virtual-tours-india.in/air_brick/content/${image?.Mask}/${image.ID}.jpg`}
                                     className="mx-auto slider-img"
                                     alt={`Project ${index}`}
                                   />
