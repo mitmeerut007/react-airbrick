@@ -20,6 +20,7 @@ app.use(
     credentials: true,
   }),
 );
+
 app.use(cookieParser());
 
 // Connect to MongoDB and start the server
