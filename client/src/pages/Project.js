@@ -27,7 +27,7 @@ const Project = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get(`https://air-brick-back.vercel.app/api/image/project?mask=${mask}`);
+      const response = await axios.get(`https://airbrick-backend.vercel.app/api/image/project?mask=${mask}`);
       setProjects(response.data);
     } catch (error) {
       console.error(error);

@@ -16,7 +16,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use(
   cors({
     AccessControlAllowOrigin: "*",
-    origin: "https://air-brick-front.vercel.app",
+    origin: "https://react-airbrick.vercel.app",
     credentials: true,
   }),
 );

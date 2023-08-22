@@ -21,7 +21,7 @@ function Header() {
     let token = localStorage.getItem("usersdatatoken");
 
     try {
-      const response = await axios.get("https://air-brick-back.vercel.app/api/user/logout", {
+      const response = await axios.get("https://airbrick-backend.vercel.app/api/user/logout", {
         headers: {
           "Content-Type": "application/json",
           Authorization: token,
@@ -51,14 +51,21 @@ function Header() {
         <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 shadow">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <Link to="https://airbrickinfra.com" className="flex items-center">
-              <img src="https://airbrickinfra.com/wp-content/uploads/2023/03/cropped-logo-04-1-300x100.png" className="mr-3 h-6 sm:h-9 bg-teal-600 rounded-sm" alt="Flowbite Logo" />
+              <img
+                src="https://airbrickinfra.com/wp-content/uploads/2023/03/cropped-logo-04-1-300x100.png"
+                className="mr-3 h-6 sm:h-9 bg-teal-600 rounded-sm"
+                alt="Flowbite Logo"
+              />
             </Link>
             <div className="flex items-center lg:order-2">
               <button
                 onClick={() => logoutuser()}
                 className="text-white flex items-center gap-2 bg-teal-600 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-full text-sm px-4 lg:px-5 py-2 mr-2 focus:outline-none"
               >
-                <span><Unicons.UilSignout /></span>Logout
+                <span>
+                  <Unicons.UilSignout />
+                </span>
+                Logout
               </button>
               <button
                 onClick={toggleMobileMenu}
@@ -104,7 +111,9 @@ function Header() {
                 <li>
                   <Link
                     to="/home"
-                    className={`block navlinks ${location.pathname === "/home" ? 'lg:bg-teal-200 bg-teal-600' : ''} hover:bg-teal-200 px-4 py-2 rounded-full text-gray-800`}
+                    className={`block navlinks ${
+                      location.pathname === "/home" ? "lg:bg-teal-200 bg-teal-600" : ""
+                    } hover:bg-teal-200 px-4 py-2 rounded-full text-gray-800`}
                     aria-current="page"
                   >
                     Home
@@ -113,7 +122,9 @@ function Header() {
                 <li>
                   <Link
                     to="/showcase"
-                    className={`block navlinks ${location.pathname === "/showcase" ? 'lg:bg-teal-200 bg-teal-600' : ''} hover:bg-teal-200 px-4 py-2 rounded-full text-gray-800`}
+                    className={`block navlinks ${
+                      location.pathname === "/showcase" ? "lg:bg-teal-200 bg-teal-600" : ""
+                    } hover:bg-teal-200 px-4 py-2 rounded-full text-gray-800`}
                   >
                     Showcase
                   </Link>
@@ -121,7 +132,9 @@ function Header() {
                 <li>
                   <Link
                     to="/project?mask=A"
-                    className={`block navlinks ${location.pathname === "/project" ? 'lg:bg-teal-200 bg-teal-600' : ''} hover:bg-teal-200 px-4 py-2 rounded-full text-gray-800`}
+                    className={`block navlinks ${
+                      location.pathname === "/project" ? "lg:bg-teal-200 bg-teal-600" : ""
+                    } hover:bg-teal-200 px-4 py-2 rounded-full text-gray-800`}
                   >
                     Project Sample
                   </Link>

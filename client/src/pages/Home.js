@@ -64,7 +64,7 @@ const Home = () => {
                   {link.sublink.map((sublink, subIndex) => (
                     <Link
                       key={subIndex}
-                      to={`https://air-brick-front.vercel.app/showcase?tags=${sublink.name
+                      to={`https://react-airbrick.vercel.app/showcase?tags=${sublink.name
                         .toLowerCase()
                         .replace(/\s+/g, "_")
                         .replace(/\//g, "-")}`}

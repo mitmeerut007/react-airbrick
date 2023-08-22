@@ -19,7 +19,7 @@ export default function App() {
   const DashboardValid = async () => {
     let token = localStorage.getItem("usersdatatoken");
 
-    const res = await fetch("https://air-brick-back.vercel.app/api/user/validuser", {
+    const res = await fetch("https://airbrick-backend.vercel.app/api/user/validuser", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
