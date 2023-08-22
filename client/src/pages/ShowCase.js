@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
@@ -58,8 +58,8 @@ const ShowCase = () => {
     setIsLoading(true);
     try {
       const [imagesResponse, tagsResponse] = await Promise.all([
-        axios.get(`https://air-brick-back.vercel.app/api/image/filter?tags=${selectedTags}&page=${currentPage}`), // Join selectedTags to create a single string
-        axios.get("https://air-brick-back.vercel.app/api/tag/get"),
+        axios.get(`https://airbrick-backend.vercel.app/api/image/filter?tags=${selectedTags}&page=${currentPage}`), // Join selectedTags to create a single string
+        axios.get("https://airbrick-backend.vercel.app/api/tag/get"),
       ]);
 
       setImages(imagesResponse.data.images);
@@ -133,7 +133,10 @@ const ShowCase = () => {
                   onChange={handleTagChange}
                   className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                 />
-                <label htmlFor={`tag-${tag}`} className="cursor-pointer w-full ml-2 text-sm font-sm text-gray-900 dark:text-gray-100">
+                <label
+                  htmlFor={`tag-${tag}`}
+                  className="cursor-pointer w-full ml-2 text-sm font-sm text-gray-900 dark:text-gray-100"
+                >
                   {tag.replace(/_/g, " ").replace(/-/g, "/")}
                 </label>
               </li>

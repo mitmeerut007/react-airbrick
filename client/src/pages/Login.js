@@ -37,7 +37,7 @@ const Login = () => {
     } else {
       try {
         const response = await axios.post(
-          "https://air-brick-back.vercel.app/api/user/login",
+          "https://airbrick-backend.vercel.app/api/user/login",
           {
             email,
             password,
@@ -67,7 +67,7 @@ const Login = () => {
   const DashboardValid = async () => {
     let token = localStorage.getItem("usersdatatoken");
 
-    const res = await fetch("https://air-brick-back.vercel.app/api/user/validuser", {
+    const res = await fetch("https://airbrick-backend.vercel.app/api/user/validuser", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
