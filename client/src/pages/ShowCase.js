@@ -120,21 +120,21 @@ const ShowCase = () => {
         </span>
       </div>
       <div className="category-content">
-        <ul className="space-y-2 font-medium">
+        <ul className="font-medium space-y-2">
           {tags[category]
             ?.sort() // Sort the tags alphabetically
             .map((tag, index) => (
               <li key={index} className="flex items-center">
                 <input
-                  id={`tag-${index}`}
+                  id={`tag-${tag}`}
                   type="checkbox"
                   value={tag}
                   checked={selectedTags.includes(tag)}
                   onChange={handleTagChange}
                   className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                 />
-                <label htmlFor={`tag-${index}`} className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
-                  {tag.replace(/_/g, " ").replace(/-/g, "/").toLowerCase()}
+                <label htmlFor={`tag-${tag}`} className="cursor-pointer w-full ml-2 text-sm font-sm text-gray-900 dark:text-gray-100">
+                  {tag.replace(/_/g, " ").replace(/-/g, "/")}
                 </label>
               </li>
             ))}
@@ -263,7 +263,7 @@ const ShowCase = () => {
                 <div
                   key={index}
                   onClick={() => openImagePopup(image?.Mask, image.ID)}
-                  className="relative item bg-white overflow-hidden rounded-3xl shadow-md hover:scale-[1.03] hover:shadow-2xl transition duration-300 cursor-pointer"
+                  className="relative item bg-white overflow-hidden rounded-3xl shadow-md hover:scale-[1.07] hover:shadow-2xl transition duration-300 cursor-pointer"
                 >
                   <img
                     src={`/${image?.Mask}/${image.ID}.jpg`}

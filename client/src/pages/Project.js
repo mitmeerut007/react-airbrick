@@ -75,7 +75,7 @@ const Project = () => {
             <div
               key={index}
               onClick={() => openImagePopup(`/${image.Mask}/${image.ID}.jpg`)}
-              className="relative item bg-white overflow-hidden rounded-3xl shadow-md hover:scale-[1.03] hover:shadow-2xl transition duration-300 cursor-pointer"
+              className="relative item bg-white overflow-hidden rounded-3xl shadow-md hover:scale-[1.07] hover:shadow-2xl transition duration-300 cursor-pointer"
             >
               <img
                 src={`/${image.Mask}/${image.ID}.jpg`}
