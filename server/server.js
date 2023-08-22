@@ -12,11 +12,14 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-app.use(express.json({ limit: '10mb' }));
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
-}));
+app.use(express.json({ limit: "10mb" }));
+app.use(
+  cors({
+    AccessControlAllowOrigin: "*",
+    origin: "http://localhost:3000",
+    credentials: true,
+  }),
+);
 app.use(cookieParser());
 
 // Connect to MongoDB and start the server

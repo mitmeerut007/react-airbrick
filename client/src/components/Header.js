@@ -8,7 +8,6 @@ function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const location = useLocation();
-  console.log(location.pathname);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -32,7 +31,6 @@ function Header() {
       });
 
       const data = response.data;
-      console.log(data);
 
       if (data.status === 201) {
         console.log("User logout");
