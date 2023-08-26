@@ -114,12 +114,14 @@ const Project = () => {
                         )}
                       >
                         {projects.map((project, index) => (
-                          <div key={index} className="slider-image-container">
-                            <img
-                              src={`/${project.Mask}/${project.ID}.jpg`}
-                              className="mx-auto slider-img"
-                              alt={`Project ${index}`}
-                            />
+                          <div key={index}>
+                            <div className="slider-cont p-0 sm:p-10 lg:p-20 bg-white h-[500px] md:h-[500px] lg:h-[600px] flex items-center overflow-hidden">
+                              <img
+                                src={`/${project.Mask}/${project.ID}.jpg`}
+                                className="mx-auto h-auto md:h-[500px] lg:h-[600px] rounded-2xl"
+                                alt={`Project ${index}`}
+                              />
+                            </div>
                           </div>
                         ))}
                       </Slider>

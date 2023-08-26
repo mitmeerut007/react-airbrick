@@ -283,7 +283,7 @@ const ShowCase = () => {
                           <button
                             onClick={closeImagePopup}
                             type="button"
-                            className="absolute top-3 right-3 sm:top-10 sm:right-10 z-50 bg-[#efefef] hover:bg-gray-200 hover:text-gray-900 rounded-full text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
+                            className="absolute top-3 right-3 sm:top-5 sm:right-5 z-50 bg-[#efefef] hover:bg-gray-200 hover:text-gray-900 rounded-full text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
                           >
                             <Unicons.UilTimes />
                           </button>
@@ -306,12 +306,14 @@ const ShowCase = () => {
                               }}
                             >
                               {images.map((image, index) => (
-                                <div key={index} className="slider-image-container">
+                                <div key={index}>
+                                  <div className="slider-cont p-0 sm:p-10 lg:p-20 bg-white h-[500px] md:h-[500px] lg:h-[600px] flex items-center overflow-hidden">
                                   <img
                                     src={`/${image?.Mask}/${image.ID}.jpg`}
-                                    className="mx-auto slider-img"
+                                    className="mx-auto h-auto md:h-[500px] lg:h-[600px] rounded-2xl"
                                     alt={`Project ${index}`}
                                   />
+                                </div>
                                 </div>
                               ))}
                             </Slider>
